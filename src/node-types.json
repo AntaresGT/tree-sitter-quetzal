@@ -1,0 +1,5323 @@
+[
+  {
+    "type": "acceso_indice",
+    "named": true,
+    "fields": {
+      "indice": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "objeto": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "acceso_miembro",
+    "named": true,
+    "fields": {
+      "miembro": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "nombre_miembro",
+            "named": true
+          }
+        ]
+      },
+      "objeto": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "bloque",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bucle_hacer_mientras",
+          "named": true
+        },
+        {
+          "type": "bucle_mientras",
+          "named": true
+        },
+        {
+          "type": "bucle_para",
+          "named": true
+        },
+        {
+          "type": "bucle_para_coleccion",
+          "named": true
+        },
+        {
+          "type": "declaracion_variable",
+          "named": true
+        },
+        {
+          "type": "sentencia_asignacion",
+          "named": true
+        },
+        {
+          "type": "sentencia_condicional",
+          "named": true
+        },
+        {
+          "type": "sentencia_continuar",
+          "named": true
+        },
+        {
+          "type": "sentencia_decremento",
+          "named": true
+        },
+        {
+          "type": "sentencia_expresion",
+          "named": true
+        },
+        {
+          "type": "sentencia_incremento",
+          "named": true
+        },
+        {
+          "type": "sentencia_intentar",
+          "named": true
+        },
+        {
+          "type": "sentencia_lanzar",
+          "named": true
+        },
+        {
+          "type": "sentencia_retorno",
+          "named": true
+        },
+        {
+          "type": "sentencia_romper",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bucle_hacer_mientras",
+    "named": true,
+    "fields": {
+      "condicion": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_hacer",
+          "named": true
+        },
+        {
+          "type": "palabra_mientras",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bucle_mientras",
+    "named": true,
+    "fields": {
+      "condicion": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_mientras",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bucle_para",
+    "named": true,
+    "fields": {
+      "condicion": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      },
+      "inicializacion": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaracion_variable",
+            "named": true
+          }
+        ]
+      },
+      "paso": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "sentencia_asignacion",
+            "named": true
+          },
+          {
+            "type": "sentencia_decremento",
+            "named": true
+          },
+          {
+            "type": "sentencia_expresion",
+            "named": true
+          },
+          {
+            "type": "sentencia_incremento",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_para",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bucle_para_coleccion",
+    "named": true,
+    "fields": {
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      },
+      "iterable": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "mutabilidad": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "modificador_var",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "tipo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "tipo_definido_usuario",
+            "named": true
+          },
+          {
+            "type": "tipo_lista",
+            "named": true
+          },
+          {
+            "type": "tipo_primitivo",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_cada",
+          "named": true
+        },
+        {
+          "type": "palabra_en",
+          "named": true
+        },
+        {
+          "type": "palabra_para",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "clausula_captura",
+    "named": true,
+    "fields": {
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_capturar",
+          "named": true
+        },
+        {
+          "type": "palabra_excepcion",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "clausula_finalmente",
+    "named": true,
+    "fields": {
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_finalmente",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "clave_jsn",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identificador",
+          "named": true
+        },
+        {
+          "type": "palabra_asincrono",
+          "named": true
+        },
+        {
+          "type": "palabra_cada",
+          "named": true
+        },
+        {
+          "type": "palabra_capturar",
+          "named": true
+        },
+        {
+          "type": "palabra_como",
+          "named": true
+        },
+        {
+          "type": "palabra_continuar",
+          "named": true
+        },
+        {
+          "type": "palabra_desde",
+          "named": true
+        },
+        {
+          "type": "palabra_en",
+          "named": true
+        },
+        {
+          "type": "palabra_entero",
+          "named": true
+        },
+        {
+          "type": "palabra_esperar",
+          "named": true
+        },
+        {
+          "type": "palabra_esto",
+          "named": true
+        },
+        {
+          "type": "palabra_excepcion",
+          "named": true
+        },
+        {
+          "type": "palabra_exportar",
+          "named": true
+        },
+        {
+          "type": "palabra_falso",
+          "named": true
+        },
+        {
+          "type": "palabra_finalmente",
+          "named": true
+        },
+        {
+          "type": "palabra_hacer",
+          "named": true
+        },
+        {
+          "type": "palabra_hereda",
+          "named": true
+        },
+        {
+          "type": "palabra_implementa",
+          "named": true
+        },
+        {
+          "type": "palabra_importar",
+          "named": true
+        },
+        {
+          "type": "palabra_intentar",
+          "named": true
+        },
+        {
+          "type": "palabra_jsn",
+          "named": true
+        },
+        {
+          "type": "palabra_lanzar",
+          "named": true
+        },
+        {
+          "type": "palabra_libre",
+          "named": true
+        },
+        {
+          "type": "palabra_lista",
+          "named": true
+        },
+        {
+          "type": "palabra_log",
+          "named": true
+        },
+        {
+          "type": "palabra_mientras",
+          "named": true
+        },
+        {
+          "type": "palabra_nuevo",
+          "named": true
+        },
+        {
+          "type": "palabra_nulo",
+          "named": true
+        },
+        {
+          "type": "palabra_numero",
+          "named": true
+        },
+        {
+          "type": "palabra_o",
+          "named": true
+        },
+        {
+          "type": "palabra_objeto",
+          "named": true
+        },
+        {
+          "type": "palabra_opcional",
+          "named": true
+        },
+        {
+          "type": "palabra_padre",
+          "named": true
+        },
+        {
+          "type": "palabra_para",
+          "named": true
+        },
+        {
+          "type": "palabra_privado",
+          "named": true
+        },
+        {
+          "type": "palabra_prototipo",
+          "named": true
+        },
+        {
+          "type": "palabra_publico",
+          "named": true
+        },
+        {
+          "type": "palabra_retornar",
+          "named": true
+        },
+        {
+          "type": "palabra_romper",
+          "named": true
+        },
+        {
+          "type": "palabra_si",
+          "named": true
+        },
+        {
+          "type": "palabra_sino",
+          "named": true
+        },
+        {
+          "type": "palabra_texto",
+          "named": true
+        },
+        {
+          "type": "palabra_vacio",
+          "named": true
+        },
+        {
+          "type": "palabra_var",
+          "named": true
+        },
+        {
+          "type": "palabra_verdadero",
+          "named": true
+        },
+        {
+          "type": "palabra_y",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cuerpo_objeto",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "declaracion_atributo",
+          "named": true
+        },
+        {
+          "type": "declaracion_constructor",
+          "named": true
+        },
+        {
+          "type": "declaracion_metodo",
+          "named": true
+        },
+        {
+          "type": "seccion_visibilidad",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cuerpo_prototipo",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "declaracion_atributo_prototipo",
+          "named": true
+        },
+        {
+          "type": "declaracion_metodo_prototipo",
+          "named": true
+        },
+        {
+          "type": "seccion_visibilidad",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declaracion_atributo",
+    "named": true,
+    "fields": {
+      "mutabilidad": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "modificador_var",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "tipo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "tipo_definido_usuario",
+            "named": true
+          },
+          {
+            "type": "tipo_lista",
+            "named": true
+          },
+          {
+            "type": "tipo_primitivo",
+            "named": true
+          }
+        ]
+      },
+      "valor": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "modificador_asincrono",
+          "named": true
+        },
+        {
+          "type": "modificador_libre",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declaracion_atributo_prototipo",
+    "named": true,
+    "fields": {
+      "mutabilidad": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "modificador_var",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "opcional": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "modificador_opcional",
+            "named": true
+          }
+        ]
+      },
+      "tipo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "tipo_definido_usuario",
+            "named": true
+          },
+          {
+            "type": "tipo_lista",
+            "named": true
+          },
+          {
+            "type": "tipo_primitivo",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "declaracion_constructor",
+    "named": true,
+    "fields": {
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "parametros": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lista_parametros",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "modificador_asincrono",
+          "named": true
+        },
+        {
+          "type": "modificador_libre",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declaracion_funcion",
+    "named": true,
+    "fields": {
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "parametros": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lista_parametros",
+            "named": true
+          }
+        ]
+      },
+      "tipo_retorno": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "tipo_definido_usuario",
+            "named": true
+          },
+          {
+            "type": "tipo_lista",
+            "named": true
+          },
+          {
+            "type": "tipo_primitivo",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "modificador_asincrono",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declaracion_metodo",
+    "named": true,
+    "fields": {
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "parametros": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lista_parametros",
+            "named": true
+          }
+        ]
+      },
+      "tipo_retorno": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "tipo_definido_usuario",
+            "named": true
+          },
+          {
+            "type": "tipo_lista",
+            "named": true
+          },
+          {
+            "type": "tipo_primitivo",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "modificador_asincrono",
+          "named": true
+        },
+        {
+          "type": "modificador_libre",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declaracion_metodo_prototipo",
+    "named": true,
+    "fields": {
+      "mutabilidad": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "modificador_var",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "opcional": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "modificador_opcional",
+            "named": true
+          }
+        ]
+      },
+      "parametros": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lista_parametros",
+            "named": true
+          }
+        ]
+      },
+      "tipo_retorno": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "tipo_definido_usuario",
+            "named": true
+          },
+          {
+            "type": "tipo_lista",
+            "named": true
+          },
+          {
+            "type": "tipo_primitivo",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "declaracion_objeto",
+    "named": true,
+    "fields": {
+      "extension": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "lista_extension",
+            "named": true
+          }
+        ]
+      },
+      "herencia": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "lista_herencia",
+            "named": true
+          }
+        ]
+      },
+      "miembros": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cuerpo_objeto",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "prototipos": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "lista_prototipos",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_objeto",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declaracion_parametro",
+    "named": true,
+    "fields": {
+      "mutabilidad": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "modificador_var",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "tipo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "tipo_definido_usuario",
+            "named": true
+          },
+          {
+            "type": "tipo_lista",
+            "named": true
+          },
+          {
+            "type": "tipo_primitivo",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "declaracion_prototipo",
+    "named": true,
+    "fields": {
+      "miembros": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cuerpo_prototipo",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_prototipo",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declaracion_variable",
+    "named": true,
+    "fields": {
+      "mutabilidad": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "modificador_var",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "tipo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "tipo_definido_usuario",
+            "named": true
+          },
+          {
+            "type": "tipo_lista",
+            "named": true
+          },
+          {
+            "type": "tipo_primitivo",
+            "named": true
+          }
+        ]
+      },
+      "valor": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "entrada_jsn",
+    "named": true,
+    "fields": {
+      "clave": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "clave_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          }
+        ]
+      },
+      "valor": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "exportacion",
+    "named": true,
+    "fields": {
+      "simbolos": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lista_exportaciones",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_exportar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expresion_agrupada",
+    "named": true,
+    "fields": {
+      "expresion": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expresion_binaria",
+    "named": true,
+    "fields": {
+      "derecha": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "izquierda": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "operador": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!=",
+            "named": false
+          },
+          {
+            "type": "%",
+            "named": false
+          },
+          {
+            "type": "&&",
+            "named": false
+          },
+          {
+            "type": "*",
+            "named": false
+          },
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "-",
+            "named": false
+          },
+          {
+            "type": "/",
+            "named": false
+          },
+          {
+            "type": "<",
+            "named": false
+          },
+          {
+            "type": "<=",
+            "named": false
+          },
+          {
+            "type": "==",
+            "named": false
+          },
+          {
+            "type": ">",
+            "named": false
+          },
+          {
+            "type": ">=",
+            "named": false
+          },
+          {
+            "type": "palabra_o",
+            "named": true
+          },
+          {
+            "type": "palabra_y",
+            "named": true
+          },
+          {
+            "type": "||",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expresion_esperar",
+    "named": true,
+    "fields": {
+      "operando": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_esperar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expresion_ternaria",
+    "named": true,
+    "fields": {
+      "condicion": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "si_falso": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "si_verdadero": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expresion_unaria",
+    "named": true,
+    "fields": {
+      "operador": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "-",
+            "named": false
+          }
+        ]
+      },
+      "operando": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "importacion",
+    "named": true,
+    "fields": {
+      "origen": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "literal_texto",
+            "named": true
+          }
+        ]
+      },
+      "simbolos": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lista_importaciones",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_desde",
+          "named": true
+        },
+        {
+          "type": "palabra_importar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "instanciacion_objeto",
+    "named": true,
+    "fields": {
+      "argumentos": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lista_argumentos",
+            "named": true
+          }
+        ]
+      },
+      "clase": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_nuevo",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "interpolacion",
+    "named": true,
+    "fields": {
+      "expresion": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "lista_argumentos",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "acceso_indice",
+          "named": true
+        },
+        {
+          "type": "acceso_miembro",
+          "named": true
+        },
+        {
+          "type": "expresion_agrupada",
+          "named": true
+        },
+        {
+          "type": "expresion_binaria",
+          "named": true
+        },
+        {
+          "type": "expresion_esperar",
+          "named": true
+        },
+        {
+          "type": "expresion_ternaria",
+          "named": true
+        },
+        {
+          "type": "expresion_unaria",
+          "named": true
+        },
+        {
+          "type": "identificador",
+          "named": true
+        },
+        {
+          "type": "instanciacion_objeto",
+          "named": true
+        },
+        {
+          "type": "literal_booleano",
+          "named": true
+        },
+        {
+          "type": "literal_entero",
+          "named": true
+        },
+        {
+          "type": "literal_jsn",
+          "named": true
+        },
+        {
+          "type": "literal_lista",
+          "named": true
+        },
+        {
+          "type": "literal_nulo",
+          "named": true
+        },
+        {
+          "type": "literal_numero",
+          "named": true
+        },
+        {
+          "type": "literal_texto",
+          "named": true
+        },
+        {
+          "type": "llamada_funcion",
+          "named": true
+        },
+        {
+          "type": "referencia_esto",
+          "named": true
+        },
+        {
+          "type": "referencia_padre",
+          "named": true
+        },
+        {
+          "type": "texto_interpolado",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lista_exportaciones",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identificador",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lista_extension",
+    "named": true,
+    "fields": {
+      "nombres": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_como",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lista_herencia",
+    "named": true,
+    "fields": {
+      "nombres": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_hereda",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lista_importaciones",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "simbolo_importado",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lista_parametros",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "declaracion_parametro",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lista_prototipos",
+    "named": true,
+    "fields": {
+      "nombres": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_implementa",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "literal_booleano",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_falso",
+          "named": true
+        },
+        {
+          "type": "palabra_verdadero",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "literal_jsn",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "entrada_jsn",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "literal_lista",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "acceso_indice",
+          "named": true
+        },
+        {
+          "type": "acceso_miembro",
+          "named": true
+        },
+        {
+          "type": "expresion_agrupada",
+          "named": true
+        },
+        {
+          "type": "expresion_binaria",
+          "named": true
+        },
+        {
+          "type": "expresion_esperar",
+          "named": true
+        },
+        {
+          "type": "expresion_ternaria",
+          "named": true
+        },
+        {
+          "type": "expresion_unaria",
+          "named": true
+        },
+        {
+          "type": "identificador",
+          "named": true
+        },
+        {
+          "type": "instanciacion_objeto",
+          "named": true
+        },
+        {
+          "type": "literal_booleano",
+          "named": true
+        },
+        {
+          "type": "literal_entero",
+          "named": true
+        },
+        {
+          "type": "literal_jsn",
+          "named": true
+        },
+        {
+          "type": "literal_lista",
+          "named": true
+        },
+        {
+          "type": "literal_nulo",
+          "named": true
+        },
+        {
+          "type": "literal_numero",
+          "named": true
+        },
+        {
+          "type": "literal_texto",
+          "named": true
+        },
+        {
+          "type": "llamada_funcion",
+          "named": true
+        },
+        {
+          "type": "referencia_esto",
+          "named": true
+        },
+        {
+          "type": "referencia_padre",
+          "named": true
+        },
+        {
+          "type": "texto_interpolado",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "literal_nulo",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_nulo",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "literal_texto",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "contenido_texto",
+          "named": true
+        },
+        {
+          "type": "secuencia_escape",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "llamada_funcion",
+    "named": true,
+    "fields": {
+      "argumentos": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lista_argumentos",
+            "named": true
+          }
+        ]
+      },
+      "objetivo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "modificador_asincrono",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_asincrono",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "modificador_libre",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_libre",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "modificador_opcional",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_opcional",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "modificador_var",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_var",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nombre_miembro",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identificador",
+          "named": true
+        },
+        {
+          "type": "palabra_asincrono",
+          "named": true
+        },
+        {
+          "type": "palabra_cada",
+          "named": true
+        },
+        {
+          "type": "palabra_capturar",
+          "named": true
+        },
+        {
+          "type": "palabra_como",
+          "named": true
+        },
+        {
+          "type": "palabra_continuar",
+          "named": true
+        },
+        {
+          "type": "palabra_desde",
+          "named": true
+        },
+        {
+          "type": "palabra_en",
+          "named": true
+        },
+        {
+          "type": "palabra_entero",
+          "named": true
+        },
+        {
+          "type": "palabra_esperar",
+          "named": true
+        },
+        {
+          "type": "palabra_esto",
+          "named": true
+        },
+        {
+          "type": "palabra_excepcion",
+          "named": true
+        },
+        {
+          "type": "palabra_exportar",
+          "named": true
+        },
+        {
+          "type": "palabra_falso",
+          "named": true
+        },
+        {
+          "type": "palabra_finalmente",
+          "named": true
+        },
+        {
+          "type": "palabra_hacer",
+          "named": true
+        },
+        {
+          "type": "palabra_hereda",
+          "named": true
+        },
+        {
+          "type": "palabra_implementa",
+          "named": true
+        },
+        {
+          "type": "palabra_importar",
+          "named": true
+        },
+        {
+          "type": "palabra_intentar",
+          "named": true
+        },
+        {
+          "type": "palabra_jsn",
+          "named": true
+        },
+        {
+          "type": "palabra_lanzar",
+          "named": true
+        },
+        {
+          "type": "palabra_libre",
+          "named": true
+        },
+        {
+          "type": "palabra_lista",
+          "named": true
+        },
+        {
+          "type": "palabra_log",
+          "named": true
+        },
+        {
+          "type": "palabra_mientras",
+          "named": true
+        },
+        {
+          "type": "palabra_nuevo",
+          "named": true
+        },
+        {
+          "type": "palabra_nulo",
+          "named": true
+        },
+        {
+          "type": "palabra_numero",
+          "named": true
+        },
+        {
+          "type": "palabra_o",
+          "named": true
+        },
+        {
+          "type": "palabra_objeto",
+          "named": true
+        },
+        {
+          "type": "palabra_opcional",
+          "named": true
+        },
+        {
+          "type": "palabra_padre",
+          "named": true
+        },
+        {
+          "type": "palabra_para",
+          "named": true
+        },
+        {
+          "type": "palabra_privado",
+          "named": true
+        },
+        {
+          "type": "palabra_prototipo",
+          "named": true
+        },
+        {
+          "type": "palabra_publico",
+          "named": true
+        },
+        {
+          "type": "palabra_retornar",
+          "named": true
+        },
+        {
+          "type": "palabra_romper",
+          "named": true
+        },
+        {
+          "type": "palabra_si",
+          "named": true
+        },
+        {
+          "type": "palabra_sino",
+          "named": true
+        },
+        {
+          "type": "palabra_texto",
+          "named": true
+        },
+        {
+          "type": "palabra_vacio",
+          "named": true
+        },
+        {
+          "type": "palabra_var",
+          "named": true
+        },
+        {
+          "type": "palabra_verdadero",
+          "named": true
+        },
+        {
+          "type": "palabra_y",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parametros_tipo",
+    "named": true,
+    "fields": {
+      "tipo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "tipo_definido_usuario",
+            "named": true
+          },
+          {
+            "type": "tipo_lista",
+            "named": true
+          },
+          {
+            "type": "tipo_primitivo",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "programa",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bucle_hacer_mientras",
+          "named": true
+        },
+        {
+          "type": "bucle_mientras",
+          "named": true
+        },
+        {
+          "type": "bucle_para",
+          "named": true
+        },
+        {
+          "type": "bucle_para_coleccion",
+          "named": true
+        },
+        {
+          "type": "declaracion_funcion",
+          "named": true
+        },
+        {
+          "type": "declaracion_objeto",
+          "named": true
+        },
+        {
+          "type": "declaracion_prototipo",
+          "named": true
+        },
+        {
+          "type": "declaracion_variable",
+          "named": true
+        },
+        {
+          "type": "exportacion",
+          "named": true
+        },
+        {
+          "type": "importacion",
+          "named": true
+        },
+        {
+          "type": "sentencia_asignacion",
+          "named": true
+        },
+        {
+          "type": "sentencia_condicional",
+          "named": true
+        },
+        {
+          "type": "sentencia_continuar",
+          "named": true
+        },
+        {
+          "type": "sentencia_decremento",
+          "named": true
+        },
+        {
+          "type": "sentencia_expresion",
+          "named": true
+        },
+        {
+          "type": "sentencia_incremento",
+          "named": true
+        },
+        {
+          "type": "sentencia_intentar",
+          "named": true
+        },
+        {
+          "type": "sentencia_lanzar",
+          "named": true
+        },
+        {
+          "type": "sentencia_retorno",
+          "named": true
+        },
+        {
+          "type": "sentencia_romper",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "rama_sino",
+    "named": true,
+    "fields": {
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          },
+          {
+            "type": "sentencia_condicional",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_sino",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "referencia_esto",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_esto",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "referencia_padre",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_padre",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "seccion_visibilidad",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_privado",
+          "named": true
+        },
+        {
+          "type": "palabra_publico",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "secuencia_escape",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "secuencia_escape_interpolada",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sentencia_asignacion",
+    "named": true,
+    "fields": {
+      "objetivo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "operador": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "%=",
+            "named": false
+          },
+          {
+            "type": "*=",
+            "named": false
+          },
+          {
+            "type": "+=",
+            "named": false
+          },
+          {
+            "type": "-=",
+            "named": false
+          },
+          {
+            "type": "/=",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          }
+        ]
+      },
+      "valor": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "sentencia_condicional",
+    "named": true,
+    "fields": {
+      "alternativa": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "rama_sino",
+            "named": true
+          }
+        ]
+      },
+      "condicion": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      },
+      "consecuencia": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_si",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sentencia_continuar",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_continuar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sentencia_decremento",
+    "named": true,
+    "fields": {
+      "objetivo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "sentencia_expresion",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "acceso_indice",
+          "named": true
+        },
+        {
+          "type": "acceso_miembro",
+          "named": true
+        },
+        {
+          "type": "expresion_agrupada",
+          "named": true
+        },
+        {
+          "type": "expresion_binaria",
+          "named": true
+        },
+        {
+          "type": "expresion_esperar",
+          "named": true
+        },
+        {
+          "type": "expresion_ternaria",
+          "named": true
+        },
+        {
+          "type": "expresion_unaria",
+          "named": true
+        },
+        {
+          "type": "identificador",
+          "named": true
+        },
+        {
+          "type": "instanciacion_objeto",
+          "named": true
+        },
+        {
+          "type": "literal_booleano",
+          "named": true
+        },
+        {
+          "type": "literal_entero",
+          "named": true
+        },
+        {
+          "type": "literal_jsn",
+          "named": true
+        },
+        {
+          "type": "literal_lista",
+          "named": true
+        },
+        {
+          "type": "literal_nulo",
+          "named": true
+        },
+        {
+          "type": "literal_numero",
+          "named": true
+        },
+        {
+          "type": "literal_texto",
+          "named": true
+        },
+        {
+          "type": "llamada_funcion",
+          "named": true
+        },
+        {
+          "type": "referencia_esto",
+          "named": true
+        },
+        {
+          "type": "referencia_padre",
+          "named": true
+        },
+        {
+          "type": "texto_interpolado",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sentencia_incremento",
+    "named": true,
+    "fields": {
+      "objetivo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "sentencia_intentar",
+    "named": true,
+    "fields": {
+      "captura": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "clausula_captura",
+            "named": true
+          }
+        ]
+      },
+      "cuerpo": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bloque",
+            "named": true
+          }
+        ]
+      },
+      "finalmente": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "clausula_finalmente",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_intentar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sentencia_lanzar",
+    "named": true,
+    "fields": {
+      "valor": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_lanzar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sentencia_retorno",
+    "named": true,
+    "fields": {
+      "valor": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "acceso_indice",
+            "named": true
+          },
+          {
+            "type": "acceso_miembro",
+            "named": true
+          },
+          {
+            "type": "expresion_agrupada",
+            "named": true
+          },
+          {
+            "type": "expresion_binaria",
+            "named": true
+          },
+          {
+            "type": "expresion_esperar",
+            "named": true
+          },
+          {
+            "type": "expresion_ternaria",
+            "named": true
+          },
+          {
+            "type": "expresion_unaria",
+            "named": true
+          },
+          {
+            "type": "identificador",
+            "named": true
+          },
+          {
+            "type": "instanciacion_objeto",
+            "named": true
+          },
+          {
+            "type": "literal_booleano",
+            "named": true
+          },
+          {
+            "type": "literal_entero",
+            "named": true
+          },
+          {
+            "type": "literal_jsn",
+            "named": true
+          },
+          {
+            "type": "literal_lista",
+            "named": true
+          },
+          {
+            "type": "literal_nulo",
+            "named": true
+          },
+          {
+            "type": "literal_numero",
+            "named": true
+          },
+          {
+            "type": "literal_texto",
+            "named": true
+          },
+          {
+            "type": "llamada_funcion",
+            "named": true
+          },
+          {
+            "type": "referencia_esto",
+            "named": true
+          },
+          {
+            "type": "referencia_padre",
+            "named": true
+          },
+          {
+            "type": "texto_interpolado",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_retornar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sentencia_romper",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_romper",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "simbolo_importado",
+    "named": true,
+    "fields": {
+      "alias": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      },
+      "nombre": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identificador",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "palabra_como",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "texto_interpolado",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "interpolacion",
+          "named": true
+        },
+        {
+          "type": "secuencia_escape_interpolada",
+          "named": true
+        },
+        {
+          "type": "segmento_texto_interpolado",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tipo_lista",
+    "named": true,
+    "fields": {
+      "parametros": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parametros_tipo",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_lista",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tipo_primitivo",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "palabra_entero",
+          "named": true
+        },
+        {
+          "type": "palabra_jsn",
+          "named": true
+        },
+        {
+          "type": "palabra_log",
+          "named": true
+        },
+        {
+          "type": "palabra_numero",
+          "named": true
+        },
+        {
+          "type": "palabra_texto",
+          "named": true
+        },
+        {
+          "type": "palabra_vacio",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "!=",
+    "named": false
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "%=",
+    "named": false
+  },
+  {
+    "type": "&&",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "*=",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "++",
+    "named": false
+  },
+  {
+    "type": "+=",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "--",
+    "named": false
+  },
+  {
+    "type": "-=",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "/=",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "comentario",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "contenido_texto",
+    "named": true
+  },
+  {
+    "type": "identificador",
+    "named": true
+  },
+  {
+    "type": "literal_entero",
+    "named": true
+  },
+  {
+    "type": "literal_numero",
+    "named": true
+  },
+  {
+    "type": "palabra_asincrono",
+    "named": true
+  },
+  {
+    "type": "palabra_cada",
+    "named": true
+  },
+  {
+    "type": "palabra_capturar",
+    "named": true
+  },
+  {
+    "type": "palabra_como",
+    "named": true
+  },
+  {
+    "type": "palabra_continuar",
+    "named": true
+  },
+  {
+    "type": "palabra_desde",
+    "named": true
+  },
+  {
+    "type": "palabra_en",
+    "named": true
+  },
+  {
+    "type": "palabra_entero",
+    "named": true
+  },
+  {
+    "type": "palabra_esperar",
+    "named": true
+  },
+  {
+    "type": "palabra_esto",
+    "named": true
+  },
+  {
+    "type": "palabra_excepcion",
+    "named": true
+  },
+  {
+    "type": "palabra_exportar",
+    "named": true
+  },
+  {
+    "type": "palabra_falso",
+    "named": true
+  },
+  {
+    "type": "palabra_finalmente",
+    "named": true
+  },
+  {
+    "type": "palabra_hacer",
+    "named": true
+  },
+  {
+    "type": "palabra_hereda",
+    "named": true
+  },
+  {
+    "type": "palabra_implementa",
+    "named": true
+  },
+  {
+    "type": "palabra_importar",
+    "named": true
+  },
+  {
+    "type": "palabra_intentar",
+    "named": true
+  },
+  {
+    "type": "palabra_jsn",
+    "named": true
+  },
+  {
+    "type": "palabra_lanzar",
+    "named": true
+  },
+  {
+    "type": "palabra_libre",
+    "named": true
+  },
+  {
+    "type": "palabra_lista",
+    "named": true
+  },
+  {
+    "type": "palabra_log",
+    "named": true
+  },
+  {
+    "type": "palabra_mientras",
+    "named": true
+  },
+  {
+    "type": "palabra_nuevo",
+    "named": true
+  },
+  {
+    "type": "palabra_nulo",
+    "named": true
+  },
+  {
+    "type": "palabra_numero",
+    "named": true
+  },
+  {
+    "type": "palabra_o",
+    "named": true
+  },
+  {
+    "type": "palabra_objeto",
+    "named": true
+  },
+  {
+    "type": "palabra_opcional",
+    "named": true
+  },
+  {
+    "type": "palabra_padre",
+    "named": true
+  },
+  {
+    "type": "palabra_para",
+    "named": true
+  },
+  {
+    "type": "palabra_privado",
+    "named": true
+  },
+  {
+    "type": "palabra_prototipo",
+    "named": true
+  },
+  {
+    "type": "palabra_publico",
+    "named": true
+  },
+  {
+    "type": "palabra_retornar",
+    "named": true
+  },
+  {
+    "type": "palabra_romper",
+    "named": true
+  },
+  {
+    "type": "palabra_si",
+    "named": true
+  },
+  {
+    "type": "palabra_sino",
+    "named": true
+  },
+  {
+    "type": "palabra_texto",
+    "named": true
+  },
+  {
+    "type": "palabra_vacio",
+    "named": true
+  },
+  {
+    "type": "palabra_var",
+    "named": true
+  },
+  {
+    "type": "palabra_verdadero",
+    "named": true
+  },
+  {
+    "type": "palabra_y",
+    "named": true
+  },
+  {
+    "type": "segmento_texto_interpolado",
+    "named": true
+  },
+  {
+    "type": "t\"",
+    "named": false
+  },
+  {
+    "type": "tipo_definido_usuario",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "||",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]

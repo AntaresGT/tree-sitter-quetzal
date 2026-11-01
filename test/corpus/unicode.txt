@@ -1,0 +1,136 @@
+==============================
+Identificadores Unicode
+==============================
+
+texto año = "2026"
+texto función_acentuada = "valor"
+entero número_2 = 2
+texto 世界 = "Unicode"
+texto _ñandú = año
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (literal_entero))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (identificador)))
+
+==============================
+Normalización completa de vocales acentuadas en palabras reservadas
+==============================
+
+nùmero valor = 1.5
+vàcio función() {}
+asìncrono entero calcular() { retornar 1 }
+objeto Ejemplo {
+    públìco:
+        texto nombre
+}
+intentar {} capturar (excepción error) {}
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_numero))
+    (identificador)
+    (literal_numero))
+  (declaracion_funcion
+    (tipo_primitivo
+      (palabra_vacio))
+    (identificador)
+    (lista_parametros)
+    (bloque))
+  (declaracion_funcion
+    (modificador_asincrono
+      (palabra_asincrono))
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (lista_parametros)
+    (bloque
+      (sentencia_retorno
+        (palabra_retornar)
+        (literal_entero))))
+  (declaracion_objeto
+    (palabra_objeto)
+    (identificador)
+    (cuerpo_objeto
+      (seccion_visibilidad
+        (palabra_publico))
+      (declaracion_atributo
+        (tipo_primitivo
+          (palabra_texto))
+        (identificador))))
+  (sentencia_intentar
+    (palabra_intentar)
+    (bloque)
+    (clausula_captura
+      (palabra_capturar)
+      (palabra_excepcion)
+      (identificador)
+      (bloque))))
+
+==============================
+Error: la normalización no convierte palabras reservadas en identificadores
+==============================
+
+texto año = "a"
+texto ano = "b"
+texto numeros = "identificador, no tipo"
+texto sino = "inválido como identificador"
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (ERROR
+    (tipo_primitivo
+      (palabra_texto))
+    (palabra_sino))
+  (sentencia_expresion
+    (literal_texto
+      (contenido_texto))))

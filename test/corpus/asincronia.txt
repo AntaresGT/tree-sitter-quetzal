@@ -1,0 +1,104 @@
+==============================
+Asincronía en funciones y métodos
+==============================
+
+asincrono numero calcular(numero valor) {
+    retornar esperar otro(valor)
+}
+
+objeto Servicio {
+    asincróno texto obtener() {
+        retornar esperar cliente.obtener()
+    }
+    libre asincrono vacio ejecutar() {}
+}
+
+---
+
+(programa
+  (declaracion_funcion
+    (modificador_asincrono
+      (palabra_asincrono))
+    (tipo_primitivo
+      (palabra_numero))
+    (identificador)
+    (lista_parametros
+      (declaracion_parametro
+        (tipo_primitivo
+          (palabra_numero))
+        (identificador)))
+    (bloque
+      (sentencia_retorno
+        (palabra_retornar)
+        (expresion_esperar
+          (palabra_esperar)
+          (llamada_funcion
+            (identificador)
+            (lista_argumentos
+              (identificador)))))))
+  (declaracion_objeto
+    (palabra_objeto)
+    (identificador)
+    (cuerpo_objeto
+      (declaracion_metodo
+        (modificador_asincrono
+          (palabra_asincrono))
+        (tipo_primitivo
+          (palabra_texto))
+        (identificador)
+        (lista_parametros)
+        (bloque
+          (sentencia_retorno
+            (palabra_retornar)
+            (expresion_esperar
+              (palabra_esperar)
+              (llamada_funcion
+                (acceso_miembro
+                  (identificador)
+                  (nombre_miembro
+                    (identificador)))
+                (lista_argumentos))))))
+      (declaracion_metodo
+        (modificador_libre
+          (palabra_libre))
+        (modificador_asincrono
+          (palabra_asincrono))
+        (tipo_primitivo
+          (palabra_vacio))
+        (identificador)
+        (lista_parametros)
+        (bloque)))))
+
+==============================
+Precedencia de esperar
+==============================
+
+resultado = esperar cliente.obtener().valor
+resultado = esperar calcular(1) + 2
+
+---
+
+(programa
+  (sentencia_asignacion
+    (identificador)
+    (expresion_esperar
+      (palabra_esperar)
+      (acceso_miembro
+        (llamada_funcion
+          (acceso_miembro
+            (identificador)
+            (nombre_miembro
+              (identificador)))
+          (lista_argumentos))
+        (nombre_miembro
+          (identificador)))))
+  (sentencia_asignacion
+    (identificador)
+    (expresion_binaria
+      (expresion_esperar
+        (palabra_esperar)
+        (llamada_funcion
+          (identificador)
+          (lista_argumentos
+            (literal_entero))))
+      (literal_entero))))

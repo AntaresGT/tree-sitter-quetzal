@@ -1,0 +1,73 @@
+{
+  "name": "tree-sitter-quetzal",
+  "version": "0.1.0",
+  "description": "Gramática Tree-sitter para Lenguaje Quetzal",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntaresGT/tree-sitter-quetzal.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Antares"
+  },
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "quetzal"
+  ],
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/*.c",
+    "src/*.json",
+    "src/tree_sitter/**",
+    "*.wasm"
+  ],
+  "dependencies": {
+    "node-addon-api": "^8.5.0",
+    "node-gyp-build": "^4.8.4"
+  },
+  "devDependencies": {
+    "node-gyp": "^13.1.0",
+    "prebuildify": "^6.0.1",
+    "tree-sitter": "^0.25.0",
+    "tree-sitter-cli": "0.27.1"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.25.0"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "install": "node-gyp-build",
+    "generate": "tree-sitter generate",
+    "build": "tree-sitter build",
+    "build:node": "node-gyp rebuild",
+    "verificar:generado": "tree-sitter generate && git diff --exit-code -- src",
+    "test": "npm run test:gramatica && npm run test:integracion && npm run test:conformidad && npm run test:bindings",
+    "test:gramatica": "tree-sitter test",
+    "test:integracion": "node --test pruebas/integracion/*.test.js",
+    "test:conformidad": "node pruebas/conformidad/verificar.js",
+    "test:bindings": "node --test bindings/node/*_test.js && cargo test",
+    "test:fuzz": "tree-sitter fuzz --iterations 20 --edits 5",
+    "test:c": "cc -std=c11 -Wall -Wextra -Werror -Isrc -Ibindings/c pruebas/integracion/cargar.c src/parser.c -o .verificar_c && ./.verificar_c && rm .verificar_c",
+    "test:neovim": "tree-sitter build && nvim --clean --headless -u NONE -c 'luafile pruebas/integracion/neovim.lua'",
+    "test:rendimiento": "node --expose-gc pruebas/rendimiento/medir.js",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground"
+  }
+}

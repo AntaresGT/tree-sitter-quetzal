@@ -1,0 +1,32 @@
+==============================
+Exportación de símbolos
+==============================
+
+exportar {
+    sumar,
+    Usuario,
+    saludo,
+}
+
+---
+
+(programa
+  (exportacion
+    (palabra_exportar)
+    (lista_exportaciones
+      (identificador)
+      (identificador)
+      (identificador))))
+
+==============================
+Exportación vacía
+==============================
+
+exportar {}
+
+---
+
+(programa
+  (exportacion
+    (palabra_exportar)
+    (lista_exportaciones)))

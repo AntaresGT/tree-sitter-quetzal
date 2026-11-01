@@ -1,0 +1,99 @@
+==============================
+Captura y bloque final
+==============================
+
+intentar {
+    lanzar "fallo"
+} capturar (excepcion error) {
+    consola.mostrar(error.mensaje)
+} finalmente {
+    consola.mostrar("Fin")
+}
+
+---
+
+(programa
+  (sentencia_intentar
+    (palabra_intentar)
+    (bloque
+      (sentencia_lanzar
+        (palabra_lanzar)
+        (literal_texto
+          (contenido_texto))))
+    (clausula_captura
+      (palabra_capturar)
+      (palabra_excepcion)
+      (identificador)
+      (bloque
+        (sentencia_expresion
+          (llamada_funcion
+            (acceso_miembro
+              (identificador)
+              (nombre_miembro
+                (identificador)))
+            (lista_argumentos
+              (acceso_miembro
+                (identificador)
+                (nombre_miembro
+                  (identificador))))))))
+    (clausula_finalmente
+      (palabra_finalmente)
+      (bloque
+        (sentencia_expresion
+          (llamada_funcion
+            (acceso_miembro
+              (identificador)
+              (nombre_miembro
+                (identificador)))
+            (lista_argumentos
+              (literal_texto
+                (contenido_texto)))))))))
+
+==============================
+Solo bloque final y excepción acentuada
+==============================
+
+intentar {
+    ejecutar()
+} finalmente {
+    limpiar()
+}
+
+intentar {
+    ejecutar()
+} capturar (excepción error) {
+    lanzar error
+}
+
+---
+
+(programa
+  (sentencia_intentar
+    (palabra_intentar)
+    (bloque
+      (sentencia_expresion
+        (llamada_funcion
+          (identificador)
+          (lista_argumentos))))
+    (clausula_finalmente
+      (palabra_finalmente)
+      (bloque
+        (sentencia_expresion
+          (llamada_funcion
+            (identificador)
+            (lista_argumentos))))))
+  (sentencia_intentar
+    (palabra_intentar)
+    (bloque
+      (sentencia_expresion
+        (llamada_funcion
+          (identificador)
+          (lista_argumentos))))
+    (clausula_captura
+      (palabra_capturar)
+      (palabra_excepcion)
+      (identificador)
+      (bloque
+        (sentencia_lanzar
+          (palabra_lanzar)
+          (identificador))))))

@@ -1,0 +1,85 @@
+==============================
+Condicional simple y ramas encadenadas
+==============================
+
+si (edad >= 18) {
+    consola.mostrar("Mayor")
+} sino si (edad >= 13) {
+    consola.mostrar("Adolescente")
+} sino {
+    consola.mostrar("Menor")
+}
+
+---
+
+(programa
+  (sentencia_condicional
+    (palabra_si)
+    (expresion_binaria
+      (identificador)
+      (literal_entero))
+    (bloque
+      (sentencia_expresion
+        (llamada_funcion
+          (acceso_miembro
+            (identificador)
+            (nombre_miembro
+              (identificador)))
+          (lista_argumentos
+            (literal_texto
+              (contenido_texto))))))
+    (rama_sino
+      (palabra_sino)
+      (sentencia_condicional
+        (palabra_si)
+        (expresion_binaria
+          (identificador)
+          (literal_entero))
+        (bloque
+          (sentencia_expresion
+            (llamada_funcion
+              (acceso_miembro
+                (identificador)
+                (nombre_miembro
+                  (identificador)))
+              (lista_argumentos
+                (literal_texto
+                  (contenido_texto))))))
+        (rama_sino
+          (palabra_sino)
+          (bloque
+            (sentencia_expresion
+              (llamada_funcion
+                (acceso_miembro
+                  (identificador)
+                  (nombre_miembro
+                    (identificador)))
+                (lista_argumentos
+                  (literal_texto
+                    (contenido_texto)))))))))))
+
+==============================
+Condicional anidado
+==============================
+
+si (activo) {
+    si (autorizado) {
+        ejecutar()
+    }
+}
+
+---
+
+(programa
+  (sentencia_condicional
+    (palabra_si)
+    (identificador)
+    (bloque
+      (sentencia_condicional
+        (palabra_si)
+        (identificador)
+        (bloque
+          (sentencia_expresion
+            (llamada_funcion
+              (identificador)
+              (lista_argumentos))))))))

@@ -1,0 +1,61 @@
+==============================
+Textos vacíos, Unicode y escapes
+==============================
+
+texto vacia = ""
+texto unicode = "¡Hola, año 2026! 世界"
+texto escapes = "línea\n tab\t comilla \" barra \\ desconocido \q"
+texto llaves = "{no es interpolación}"
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)
+      (secuencia_escape)
+      (contenido_texto)
+      (secuencia_escape)
+      (contenido_texto)
+      (secuencia_escape)
+      (contenido_texto)
+      (secuencia_escape)
+      (contenido_texto)
+      (secuencia_escape)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto))))
+
+==============================
+Texto multilínea
+==============================
+
+texto poema = "primera línea
+segunda línea"
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto))))

@@ -1,0 +1,30 @@
+# Artefactos de Rust
+target/
+
+# Artefactos de Node
+build/
+prebuilds/
+node_modules/
+
+# Artefactos de C
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.pc
+*.exp
+*.lib
+*.obj
+*.o
+
+# Otros productos de compilación
+*.wasm
+*.tar.gz
+*.tgz
+*.zip
+
+# Referencias locales y comprobaciones temporales
+.referencia/
+.verificar_c
+.init-registro.txt

@@ -1,0 +1,4804 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "quetzal",
+  "word": "identificador",
+  "rules": {
+    "programa": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_elemento"
+      }
+    },
+    "_elemento": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "importacion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "exportacion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "declaracion_objeto"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "declaracion_prototipo"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "declaracion_funcion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_sentencia"
+        }
+      ]
+    },
+    "_sentencia": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "declaracion_variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sentencia_condicional"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bucle_mientras"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bucle_hacer_mientras"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bucle_para"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bucle_para_coleccion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sentencia_intentar"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sentencia_lanzar"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sentencia_retorno"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sentencia_romper"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sentencia_continuar"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_sentencia_simple"
+        }
+      ]
+    },
+    "_sentencia_simple": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "sentencia_asignacion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sentencia_incremento"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sentencia_decremento"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sentencia_expresion"
+        }
+      ]
+    },
+    "bloque": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_sentencia"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_tipo": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "tipo_primitivo"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "tipo_lista"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identificador"
+            },
+            "named": true,
+            "value": "tipo_definido_usuario"
+          }
+        ]
+      }
+    },
+    "tipo_primitivo": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[eéè]nt[eéè]r[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_entero"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "n[uúù]m[eéè]r[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_numero"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "t[eéè]xt[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_texto"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "l[oóò]g"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_log"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "jsn"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_jsn"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "v[aáà]c[iíì][oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_vacio"
+        }
+      ]
+    },
+    "tipo_lista": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "l[iíì]st[aáà]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_lista"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "parametros",
+              "content": {
+                "type": "SYMBOL",
+                "name": "parametros_tipo"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "parametros_tipo": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "FIELD",
+          "name": "tipo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_tipo"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "declaracion_variable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "tipo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_tipo"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "mutabilidad",
+              "content": {
+                "type": "SYMBOL",
+                "name": "modificador_var"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "FIELD",
+                  "name": "valor",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_expresion"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "declaracion_funcion": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "modificador_asincrono"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "FIELD",
+            "name": "tipo_retorno",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_tipo"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "nombre",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identificador"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "parametros",
+            "content": {
+              "type": "SYMBOL",
+              "name": "lista_parametros"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "cuerpo",
+            "content": {
+              "type": "SYMBOL",
+              "name": "bloque"
+            }
+          }
+        ]
+      }
+    },
+    "lista_parametros": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "declaracion_parametro"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "declaracion_parametro"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "declaracion_parametro": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "tipo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_tipo"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "mutabilidad",
+              "content": {
+                "type": "SYMBOL",
+                "name": "modificador_var"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        }
+      ]
+    },
+    "modificador_var": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "v[aáà]r"
+          }
+        }
+      },
+      "named": true,
+      "value": "palabra_var"
+    },
+    "modificador_libre": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "l[iíì]br[eéè]"
+          }
+        }
+      },
+      "named": true,
+      "value": "palabra_libre"
+    },
+    "modificador_asincrono": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[aáà]s[iíì]ncr[oóò]n[oóò]"
+          }
+        }
+      },
+      "named": true,
+      "value": "palabra_asincrono"
+    },
+    "modificador_opcional": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[oóò]pc[iíì][oóò]n[aáà]l"
+          }
+        }
+      },
+      "named": true,
+      "value": "palabra_opcional"
+    },
+    "sentencia_asignacion": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "objetivo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "operador",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "="
+              },
+              {
+                "type": "STRING",
+                "value": "+="
+              },
+              {
+                "type": "STRING",
+                "value": "-="
+              },
+              {
+                "type": "STRING",
+                "value": "*="
+              },
+              {
+                "type": "STRING",
+                "value": "/="
+              },
+              {
+                "type": "STRING",
+                "value": "%="
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "valor",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        }
+      ]
+    },
+    "sentencia_incremento": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "objetivo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "++"
+        }
+      ]
+    },
+    "sentencia_decremento": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "objetivo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "--"
+        }
+      ]
+    },
+    "sentencia_expresion": {
+      "type": "SYMBOL",
+      "name": "_expresion"
+    },
+    "sentencia_condicional": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "s[iíì]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_si"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "condicion",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "consecuencia",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bloque"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "alternativa",
+              "content": {
+                "type": "SYMBOL",
+                "name": "rama_sino"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "rama_sino": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "s[iíì]n[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_sino"
+        },
+        {
+          "type": "FIELD",
+          "name": "cuerpo",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "sentencia_condicional"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "bloque"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "bucle_mientras": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "m[iíì][eéè]ntr[aáà]s"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_mientras"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "condicion",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "cuerpo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bloque"
+          }
+        }
+      ]
+    },
+    "bucle_hacer_mientras": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "h[aáà]c[eéè]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_hacer"
+        },
+        {
+          "type": "FIELD",
+          "name": "cuerpo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bloque"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "m[iíì][eéè]ntr[aáà]s"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_mientras"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "condicion",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "bucle_para": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "p[aáà]r[aáà]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_para"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "inicializacion",
+          "content": {
+            "type": "SYMBOL",
+            "name": "declaracion_variable"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        },
+        {
+          "type": "FIELD",
+          "name": "condicion",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        },
+        {
+          "type": "FIELD",
+          "name": "paso",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_sentencia_simple"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "cuerpo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bloque"
+          }
+        }
+      ]
+    },
+    "bucle_para_coleccion": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "p[aáà]r[aáà]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_para"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "tipo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_tipo"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "mutabilidad",
+              "content": {
+                "type": "SYMBOL",
+                "name": "modificador_var"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "TOKEN",
+                "content": {
+                  "type": "PREC",
+                  "value": 1,
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "[eéè]n"
+                  }
+                }
+              },
+              "named": true,
+              "value": "palabra_en"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "TOKEN",
+                "content": {
+                  "type": "PREC",
+                  "value": 1,
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "c[aáà]d[aáà]"
+                  }
+                }
+              },
+              "named": true,
+              "value": "palabra_cada"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "iterable",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "cuerpo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bloque"
+          }
+        }
+      ]
+    },
+    "sentencia_retorno": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "TOKEN",
+              "content": {
+                "type": "PREC",
+                "value": 1,
+                "content": {
+                  "type": "PATTERN",
+                  "value": "r[eéè]t[oóò]rn[aáà]r"
+                }
+              }
+            },
+            "named": true,
+            "value": "palabra_retornar"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "valor",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "sentencia_romper": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "r[oóò]mp[eéè]r"
+          }
+        }
+      },
+      "named": true,
+      "value": "palabra_romper"
+    },
+    "sentencia_continuar": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "c[oóò]nt[iíì]n[uúù][aáà]r"
+          }
+        }
+      },
+      "named": true,
+      "value": "palabra_continuar"
+    },
+    "sentencia_intentar": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[iíì]nt[eéè]nt[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_intentar"
+        },
+        {
+          "type": "FIELD",
+          "name": "cuerpo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bloque"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "captura",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "clausula_captura"
+                  }
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "finalmente",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "clausula_finalmente"
+                      }
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "FIELD",
+              "name": "finalmente",
+              "content": {
+                "type": "SYMBOL",
+                "name": "clausula_finalmente"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "clausula_captura": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "c[aáà]pt[uúù]r[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_capturar"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[eéè]xc[eéè]pc[iíì][oóò]n"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_excepcion"
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "cuerpo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bloque"
+          }
+        }
+      ]
+    },
+    "clausula_finalmente": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "f[iíì]n[aáà]lm[eéè]nt[eéè]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_finalmente"
+        },
+        {
+          "type": "FIELD",
+          "name": "cuerpo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bloque"
+          }
+        }
+      ]
+    },
+    "sentencia_lanzar": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "l[aáà]nz[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_lanzar"
+        },
+        {
+          "type": "FIELD",
+          "name": "valor",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        }
+      ]
+    },
+    "declaracion_objeto": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[oóò]bj[eéè]t[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_objeto"
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "herencia",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "lista_herencia"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "extension",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "lista_extension"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "prototipos",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "lista_prototipos"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "miembros",
+          "content": {
+            "type": "SYMBOL",
+            "name": "cuerpo_objeto"
+          }
+        }
+      ]
+    },
+    "lista_herencia": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "h[eéè]r[eéè]d[aáà]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_hereda"
+        },
+        {
+          "type": "FIELD",
+          "name": "nombres",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identificador"
+              },
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "identificador"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "lista_extension": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "c[oóò]m[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_como"
+        },
+        {
+          "type": "FIELD",
+          "name": "nombres",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identificador"
+              },
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "identificador"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "lista_prototipos": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[iíì]mpl[eéè]m[eéè]nt[aáà]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_implementa"
+        },
+        {
+          "type": "FIELD",
+          "name": "nombres",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identificador"
+              },
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "identificador"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "cuerpo_objeto": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "seccion_visibilidad"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "declaracion_atributo"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "declaracion_metodo"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "declaracion_constructor"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "seccion_visibilidad": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "TOKEN",
+                "content": {
+                  "type": "PREC",
+                  "value": 1,
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "p[uúù]bl[iíì]c[oóò]"
+                  }
+                }
+              },
+              "named": true,
+              "value": "palabra_publico"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "TOKEN",
+                "content": {
+                  "type": "PREC",
+                  "value": 1,
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "pr[iíì]v[aáà]d[oóò]"
+                  }
+                }
+              },
+              "named": true,
+              "value": "palabra_privado"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        }
+      ]
+    },
+    "declaracion_atributo": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "modificador_libre"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "modificador_asincrono"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "tipo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_tipo"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "mutabilidad",
+              "content": {
+                "type": "SYMBOL",
+                "name": "modificador_var"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "FIELD",
+                  "name": "valor",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_expresion"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "declaracion_metodo": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "modificador_libre"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "modificador_asincrono"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "tipo_retorno",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_tipo"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "parametros",
+          "content": {
+            "type": "SYMBOL",
+            "name": "lista_parametros"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "cuerpo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bloque"
+          }
+        }
+      ]
+    },
+    "declaracion_constructor": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "modificador_libre"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "modificador_asincrono"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "parametros",
+          "content": {
+            "type": "SYMBOL",
+            "name": "lista_parametros"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "cuerpo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bloque"
+          }
+        }
+      ]
+    },
+    "declaracion_prototipo": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "pr[oóò]t[oóò]t[iíì]p[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_prototipo"
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "miembros",
+          "content": {
+            "type": "SYMBOL",
+            "name": "cuerpo_prototipo"
+          }
+        }
+      ]
+    },
+    "cuerpo_prototipo": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "seccion_visibilidad"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "declaracion_atributo_prototipo"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "declaracion_metodo_prototipo"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "declaracion_atributo_prototipo": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "tipo",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_tipo"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "opcional",
+              "content": {
+                "type": "SYMBOL",
+                "name": "modificador_opcional"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "mutabilidad",
+              "content": {
+                "type": "SYMBOL",
+                "name": "modificador_var"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        }
+      ]
+    },
+    "declaracion_metodo_prototipo": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "tipo_retorno",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_tipo"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "opcional",
+              "content": {
+                "type": "SYMBOL",
+                "name": "modificador_opcional"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "mutabilidad",
+              "content": {
+                "type": "SYMBOL",
+                "name": "modificador_var"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "parametros",
+          "content": {
+            "type": "SYMBOL",
+            "name": "lista_parametros"
+          }
+        }
+      ]
+    },
+    "importacion": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[iíì]mp[oóò]rt[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_importar"
+        },
+        {
+          "type": "FIELD",
+          "name": "simbolos",
+          "content": {
+            "type": "SYMBOL",
+            "name": "lista_importaciones"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "d[eéè]sd[eéè]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_desde"
+        },
+        {
+          "type": "FIELD",
+          "name": "origen",
+          "content": {
+            "type": "SYMBOL",
+            "name": "literal_texto"
+          }
+        }
+      ]
+    },
+    "lista_importaciones": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "simbolo_importado"
+                    },
+                    {
+                      "type": "REPEAT",
+                      "content": {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": ","
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "simbolo_importado"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "simbolo_importado": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "nombre",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "PREC",
+                      "value": 1,
+                      "content": {
+                        "type": "PATTERN",
+                        "value": "c[oóò]m[oóò]"
+                      }
+                    }
+                  },
+                  "named": true,
+                  "value": "palabra_como"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "alias",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "identificador"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "exportacion": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[eéè]xp[oóò]rt[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_exportar"
+        },
+        {
+          "type": "FIELD",
+          "name": "simbolos",
+          "content": {
+            "type": "SYMBOL",
+            "name": "lista_exportaciones"
+          }
+        }
+      ]
+    },
+    "lista_exportaciones": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "identificador"
+                    },
+                    {
+                      "type": "REPEAT",
+                      "content": {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": ","
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "identificador"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_expresion": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "expresion_ternaria"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expresion_binaria"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expresion_unaria"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expresion_esperar"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "llamada_funcion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "acceso_miembro"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "acceso_indice"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "instanciacion_objeto"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expresion_agrupada"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "literal_lista"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "literal_jsn"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "literal_entero"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "literal_numero"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "literal_texto"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "texto_interpolado"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "literal_booleano"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "literal_nulo"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "referencia_esto"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "referencia_padre"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identificador"
+        }
+      ]
+    },
+    "expresion_ternaria": {
+      "type": "PREC_RIGHT",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "condicion",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expresion"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "?"
+          },
+          {
+            "type": "FIELD",
+            "name": "si_verdadero",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expresion"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ":"
+          },
+          {
+            "type": "FIELD",
+            "name": "si_falso",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expresion"
+            }
+          }
+        ]
+      }
+    },
+    "expresion_binaria": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PREC_LEFT",
+          "value": 2,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "||"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 2,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "PREC",
+                      "value": 1,
+                      "content": {
+                        "type": "PATTERN",
+                        "value": "[oóò]"
+                      }
+                    }
+                  },
+                  "named": true,
+                  "value": "palabra_o"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 3,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "&&"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 3,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "PREC",
+                      "value": 1,
+                      "content": {
+                        "type": "PATTERN",
+                        "value": "y"
+                      }
+                    }
+                  },
+                  "named": true,
+                  "value": "palabra_y"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 4,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "=="
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 4,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "!="
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 5,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "<"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 5,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": ">"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 5,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "<="
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 5,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": ">="
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 6,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "+"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 6,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "-"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 7,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "*"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 7,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "/"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 7,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "izquierda",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operador",
+                "content": {
+                  "type": "STRING",
+                  "value": "%"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "derecha",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "expresion_unaria": {
+      "type": "PREC_RIGHT",
+      "value": 8,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "operador",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "!"
+                },
+                {
+                  "type": "STRING",
+                  "value": "-"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "operando",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expresion"
+            }
+          }
+        ]
+      }
+    },
+    "expresion_esperar": {
+      "type": "PREC_RIGHT",
+      "value": 8,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "TOKEN",
+              "content": {
+                "type": "PREC",
+                "value": 1,
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[eéè]sp[eéè]r[aáà]r"
+                }
+              }
+            },
+            "named": true,
+            "value": "palabra_esperar"
+          },
+          {
+            "type": "FIELD",
+            "name": "operando",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expresion"
+            }
+          }
+        ]
+      }
+    },
+    "llamada_funcion": {
+      "type": "PREC_LEFT",
+      "value": 9,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "objetivo",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expresion"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "argumentos",
+            "content": {
+              "type": "SYMBOL",
+              "name": "lista_argumentos"
+            }
+          }
+        ]
+      }
+    },
+    "lista_argumentos": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_expresion"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "acceso_miembro": {
+      "type": "PREC_LEFT",
+      "value": 9,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "objeto",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expresion"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "FIELD",
+            "name": "miembro",
+            "content": {
+              "type": "SYMBOL",
+              "name": "nombre_miembro"
+            }
+          }
+        ]
+      }
+    },
+    "acceso_indice": {
+      "type": "PREC_LEFT",
+      "value": 9,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "objeto",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expresion"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "["
+          },
+          {
+            "type": "FIELD",
+            "name": "indice",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expresion"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "]"
+          }
+        ]
+      }
+    },
+    "instanciacion_objeto": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "n[uúù][eéè]v[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_nuevo"
+        },
+        {
+          "type": "FIELD",
+          "name": "clase",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identificador"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "argumentos",
+          "content": {
+            "type": "SYMBOL",
+            "name": "lista_argumentos"
+          }
+        }
+      ]
+    },
+    "expresion_agrupada": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "expresion",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "literal_lista": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_expresion"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_expresion"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "literal_jsn": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "entrada_jsn"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "entrada_jsn": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "clave",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "clave_jsn"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "literal_texto"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "FIELD",
+          "name": "valor",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "literal_entero": {
+      "type": "PATTERN",
+      "value": "[0-9]+"
+    },
+    "literal_numero": {
+      "type": "PATTERN",
+      "value": "[0-9]+\\.[0-9]+"
+    },
+    "literal_booleano": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "v[eéè]rd[aáà]d[eéè]r[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_verdadero"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "f[aáà]ls[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_falso"
+        }
+      ]
+    },
+    "literal_nulo": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "n[uúù]l[oóò]"
+          }
+        }
+      },
+      "named": true,
+      "value": "palabra_nulo"
+    },
+    "referencia_esto": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[eéè]st[oóò]"
+          }
+        }
+      },
+      "named": true,
+      "value": "palabra_esto"
+    },
+    "referencia_padre": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "p[aáà]dr[eéè]"
+          }
+        }
+      },
+      "named": true,
+      "value": "palabra_padre"
+    },
+    "literal_texto": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "contenido_texto"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "secuencia_escape"
+              }
+            ]
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "\""
+          }
+        }
+      ]
+    },
+    "contenido_texto": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\"\\\\]+"
+        }
+      }
+    },
+    "secuencia_escape": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\\\[\\s\\S]"
+      }
+    },
+    "texto_interpolado": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "t\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "segmento_texto_interpolado"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "secuencia_escape_interpolada"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "interpolacion"
+              }
+            ]
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "\""
+          }
+        }
+      ]
+    },
+    "segmento_texto_interpolado": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\"\\\\{]+"
+        }
+      }
+    },
+    "secuencia_escape_interpolada": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\\\[\\s\\S]"
+      }
+    },
+    "interpolacion": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "{"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "expresion",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expresion"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_nombre_reservado": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[eéè]nt[eéè]r[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_entero"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "n[uúù]m[eéè]r[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_numero"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "t[eéè]xt[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_texto"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "l[oóò]g"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_log"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "l[iíì]st[aáà]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_lista"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "jsn"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_jsn"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "v[aáà]c[iíì][oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_vacio"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "v[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_var"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "s[iíì]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_si"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "s[iíì]n[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_sino"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "m[iíì][eéè]ntr[aáà]s"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_mientras"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "p[aáà]r[aáà]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_para"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "h[aáà]c[eéè]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_hacer"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[eéè]n"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_en"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "c[aáà]d[aáà]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_cada"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "r[oóò]mp[eéè]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_romper"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "c[oóò]nt[iíì]n[uúù][aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_continuar"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "r[eéè]t[oóò]rn[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_retornar"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[iíì]nt[eéè]nt[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_intentar"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "c[aáà]pt[uúù]r[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_capturar"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "f[iíì]n[aáà]lm[eéè]nt[eéè]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_finalmente"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "l[aáà]nz[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_lanzar"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[eéè]xc[eéè]pc[iíì][oóò]n"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_excepcion"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[oóò]bj[eéè]t[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_objeto"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "pr[oóò]t[oóò]t[iíì]p[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_prototipo"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "h[eéè]r[eéè]d[aáà]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_hereda"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[iíì]mpl[eéè]m[eéè]nt[aáà]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_implementa"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "c[oóò]m[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_como"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "n[uúù][eéè]v[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_nuevo"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[eéè]st[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_esto"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "p[aáà]dr[eéè]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_padre"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "p[uúù]bl[iíì]c[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_publico"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "pr[iíì]v[aáà]d[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_privado"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "l[iíì]br[eéè]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_libre"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[oóò]pc[iíì][oóò]n[aáà]l"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_opcional"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[aáà]s[iíì]ncr[oóò]n[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_asincrono"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[eéè]sp[eéè]r[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_esperar"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[iíì]mp[oóò]rt[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_importar"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[eéè]xp[oóò]rt[aáà]r"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_exportar"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "d[eéè]sd[eéè]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_desde"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "v[eéè]rd[aáà]d[eéè]r[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_verdadero"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "f[aáà]ls[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_falso"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "n[uúù]l[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_nulo"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "y"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_y"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[oóò]"
+              }
+            }
+          },
+          "named": true,
+          "value": "palabra_o"
+        }
+      ]
+    },
+    "nombre_miembro": {
+      "type": "RESERVED",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "identificador"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_nombre_reservado"
+          }
+        ]
+      },
+      "context_name": "sin_reservas"
+    },
+    "clave_jsn": {
+      "type": "RESERVED",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "identificador"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_nombre_reservado"
+          }
+        ]
+      },
+      "context_name": "sin_reservas"
+    },
+    "identificador": {
+      "type": "PATTERN",
+      "value": "[\\p{L}_][\\p{L}\\p{N}_]*"
+    },
+    "comentario": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "//"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[^\\n]*"
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "/*"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+              },
+              {
+                "type": "STRING",
+                "value": "/"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "[ \\t\\r\\n\\f]"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "comentario"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {
+    "globales": [
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[eéè]nt[eéè]r[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "n[uúù]m[eéè]r[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "t[eéè]xt[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "l[oóò]g"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "l[iíì]st[aáà]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "jsn"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "v[aáà]c[iíì][oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "v[aáà]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "s[iíì]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "s[iíì]n[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "m[iíì][eéè]ntr[aáà]s"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "p[aáà]r[aáà]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "h[aáà]c[eéè]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[eéè]n"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "c[aáà]d[aáà]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "r[oóò]mp[eéè]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "c[oóò]nt[iíì]n[uúù][aáà]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "r[eéè]t[oóò]rn[aáà]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[iíì]nt[eéè]nt[aáà]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "c[aáà]pt[uúù]r[aáà]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "f[iíì]n[aáà]lm[eéè]nt[eéè]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "l[aáà]nz[aáà]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[eéè]xc[eéè]pc[iíì][oóò]n"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[oóò]bj[eéè]t[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "pr[oóò]t[oóò]t[iíì]p[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "h[eéè]r[eéè]d[aáà]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[iíì]mpl[eéè]m[eéè]nt[aáà]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "c[oóò]m[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "n[uúù][eéè]v[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[eéè]st[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "p[aáà]dr[eéè]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "p[uúù]bl[iíì]c[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "pr[iíì]v[aáà]d[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "l[iíì]br[eéè]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[oóò]pc[iíì][oóò]n[aáà]l"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[aáà]s[iíì]ncr[oóò]n[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[eéè]sp[eéè]r[aáà]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[iíì]mp[oóò]rt[aáà]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[eéè]xp[oóò]rt[aáà]r"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "d[eéè]sd[eéè]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "v[eéè]rd[aáà]d[eéè]r[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "f[aáà]ls[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "n[uúù]l[oóò]"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "y"
+          }
+        }
+      },
+      {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[oóò]"
+          }
+        }
+      }
+    ],
+    "sin_reservas": []
+  }
+}

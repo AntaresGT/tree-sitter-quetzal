@@ -1,0 +1,43 @@
+==============================
+Importación con símbolos, alias y ruta
+==============================
+
+importar {
+    sumar,
+    Usuario,
+    saludo como mensaje,
+} desde "modulo.qz"
+
+---
+
+(programa
+  (importacion
+    (palabra_importar)
+    (lista_importaciones
+      (simbolo_importado
+        (identificador))
+      (simbolo_importado
+        (identificador))
+      (simbolo_importado
+        (identificador)
+        (palabra_como)
+        (identificador)))
+    (palabra_desde)
+    (literal_texto
+      (contenido_texto))))
+
+==============================
+Importación vacía
+==============================
+
+importar {} desde "vacio.qz"
+
+---
+
+(programa
+  (importacion
+    (palabra_importar)
+    (lista_importaciones)
+    (palabra_desde)
+    (literal_texto
+      (contenido_texto))))

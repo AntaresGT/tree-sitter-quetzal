@@ -1,0 +1,96 @@
+==============================
+Prototipo con atributos, métodos y miembros opcionales
+==============================
+
+prototipo Contrato {
+    privado:
+        entero identificador
+        texto opcional var alias
+    publico:
+        log opcional validar(texto valor)
+        entero var calcular(entero var entrada)
+}
+
+---
+
+(programa
+  (declaracion_prototipo
+    (palabra_prototipo)
+    (identificador)
+    (cuerpo_prototipo
+      (seccion_visibilidad
+        (palabra_privado))
+      (declaracion_atributo_prototipo
+        (tipo_primitivo
+          (palabra_entero))
+        (identificador))
+      (declaracion_atributo_prototipo
+        (tipo_primitivo
+          (palabra_texto))
+        (modificador_opcional
+          (palabra_opcional))
+        (modificador_var
+          (palabra_var))
+        (identificador))
+      (seccion_visibilidad
+        (palabra_publico))
+      (declaracion_metodo_prototipo
+        (tipo_primitivo
+          (palabra_log))
+        (modificador_opcional
+          (palabra_opcional))
+        (identificador)
+        (lista_parametros
+          (declaracion_parametro
+            (tipo_primitivo
+              (palabra_texto))
+            (identificador))))
+      (declaracion_metodo_prototipo
+        (tipo_primitivo
+          (palabra_entero))
+        (modificador_var
+          (palabra_var))
+        (identificador)
+        (lista_parametros
+          (declaracion_parametro
+            (tipo_primitivo
+              (palabra_entero))
+            (modificador_var
+              (palabra_var))
+            (identificador)))))))
+
+==============================
+Objeto que implementa varios prototipos
+==============================
+
+objeto Recurso implementa Persistible, Autenticable {
+    jsn serializar() {
+        retornar {tipo: "recurso"}
+    }
+}
+
+---
+
+(programa
+  (declaracion_objeto
+    (palabra_objeto)
+    (identificador)
+    (lista_prototipos
+      (palabra_implementa)
+      (identificador)
+      (identificador))
+    (cuerpo_objeto
+      (declaracion_metodo
+        (tipo_primitivo
+          (palabra_jsn))
+        (identificador)
+        (lista_parametros)
+        (bloque
+          (sentencia_retorno
+            (palabra_retornar)
+            (literal_jsn
+              (entrada_jsn
+                (clave_jsn
+                  (identificador))
+                (literal_texto
+                  (contenido_texto))))))))))

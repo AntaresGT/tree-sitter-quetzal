@@ -1,0 +1,148 @@
+==============================
+Llamadas, miembros e índices encadenados
+==============================
+
+resultado = instancia.metodo(1, 2)[0].propiedad.otra_llamada()
+texto valor = 123.texto()
+entero convertido = "123".entero()
+
+---
+
+(programa
+  (sentencia_asignacion
+    (identificador)
+    (llamada_funcion
+      (acceso_miembro
+        (acceso_miembro
+          (acceso_indice
+            (llamada_funcion
+              (acceso_miembro
+                (identificador)
+                (nombre_miembro
+                  (identificador)))
+              (lista_argumentos
+                (literal_entero)
+                (literal_entero)))
+            (literal_entero))
+          (nombre_miembro
+            (identificador)))
+        (nombre_miembro
+          (identificador)))
+      (lista_argumentos)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (llamada_funcion
+      (acceso_miembro
+        (literal_entero)
+        (nombre_miembro
+          (palabra_texto)))
+      (lista_argumentos)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (llamada_funcion
+      (acceso_miembro
+        (literal_texto
+          (contenido_texto))
+        (nombre_miembro
+          (palabra_entero)))
+      (lista_argumentos))))
+
+==============================
+Expresiones compuestas y referencias de objetos
+==============================
+
+Usuario usuario = nuevo Usuario("Ana", 25)
+valor = (a + b) * lista_valores[-1]
+valor = esto.nombre
+valor = padre.Animal.comer()
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_definido_usuario)
+    (identificador)
+    (instanciacion_objeto
+      (palabra_nuevo)
+      (identificador)
+      (lista_argumentos
+        (literal_texto
+          (contenido_texto))
+        (literal_entero))))
+  (sentencia_asignacion
+    (identificador)
+    (expresion_binaria
+      (expresion_agrupada
+        (expresion_binaria
+          (identificador)
+          (identificador)))
+      (acceso_indice
+        (identificador)
+        (expresion_unaria
+          (literal_entero)))))
+  (sentencia_asignacion
+    (identificador)
+    (acceso_miembro
+      (referencia_esto
+        (palabra_esto))
+      (nombre_miembro
+        (identificador))))
+  (sentencia_asignacion
+    (identificador)
+    (llamada_funcion
+      (acceso_miembro
+        (acceso_miembro
+          (referencia_padre
+            (palabra_padre))
+          (nombre_miembro
+            (identificador)))
+        (nombre_miembro
+          (identificador)))
+      (lista_argumentos))))
+
+==============================
+Palabras reservadas como miembros
+==============================
+
+valor = instancia.texto()
+valor = instancia.lista()
+valor = instancia.entero
+valor = instancia.número()
+
+---
+
+(programa
+  (sentencia_asignacion
+    (identificador)
+    (llamada_funcion
+      (acceso_miembro
+        (identificador)
+        (nombre_miembro
+          (palabra_texto)))
+      (lista_argumentos)))
+  (sentencia_asignacion
+    (identificador)
+    (llamada_funcion
+      (acceso_miembro
+        (identificador)
+        (nombre_miembro
+          (palabra_lista)))
+      (lista_argumentos)))
+  (sentencia_asignacion
+    (identificador)
+    (acceso_miembro
+      (identificador)
+      (nombre_miembro
+        (palabra_entero))))
+  (sentencia_asignacion
+    (identificador)
+    (llamada_funcion
+      (acceso_miembro
+        (identificador)
+        (nombre_miembro
+          (palabra_numero)))
+      (lista_argumentos))))

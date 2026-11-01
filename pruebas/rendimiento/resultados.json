@@ -1,0 +1,41 @@
+{
+  "fecha": "2026-11-01T14:13:05.790Z",
+  "plataforma": "linux x64",
+  "node": "v24.21.0",
+  "metodologia": "Promedio de 5 ejecuciones tras 2 calentamientos; fuentes sintéticas en memoria",
+  "bytes_parser_c": 966150,
+  "resultados": [
+    {
+      "lineas": 100,
+      "bytes": 2319,
+      "analisis_inicial_ms": 0.396,
+      "reanalisis_incremental_ms": 0.038,
+      "rss_antes_mib": 56.988,
+      "rss_despues_mib": 57.113
+    },
+    {
+      "lineas": 1000,
+      "bytes": 23694,
+      "analisis_inicial_ms": 3.188,
+      "reanalisis_incremental_ms": 0.188,
+      "rss_antes_mib": 60.738,
+      "rss_despues_mib": 60.988
+    },
+    {
+      "lineas": 10000,
+      "bytes": 241944,
+      "analisis_inicial_ms": 31.048,
+      "reanalisis_incremental_ms": 1.598,
+      "rss_antes_mib": 97.207,
+      "rss_despues_mib": 100.582
+    },
+    {
+      "lineas": 50000,
+      "bytes": 1231944,
+      "analisis_inicial_ms": 156.605,
+      "reanalisis_incremental_ms": 9.693,
+      "rss_antes_mib": 284.59,
+      "rss_despues_mib": 301.59
+    }
+  ]
+}

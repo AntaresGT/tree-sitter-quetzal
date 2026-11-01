@@ -1,0 +1,93 @@
+==============================
+Listas vacías, anidadas y con expresiones
+==============================
+
+lista vacia = []
+lista<entero> numeros = [1, 2, 3]
+lista anidada = [1, [2, [3]], "texto", verdadero]
+lista calculada = [a + b, nuevo Usuario(), instancia.metodo()]
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_lista
+      (palabra_lista))
+    (identificador)
+    (literal_lista))
+  (declaracion_variable
+    (tipo_lista
+      (palabra_lista)
+      (parametros_tipo
+        (tipo_primitivo
+          (palabra_entero))))
+    (identificador)
+    (literal_lista
+      (literal_entero)
+      (literal_entero)
+      (literal_entero)))
+  (declaracion_variable
+    (tipo_lista
+      (palabra_lista))
+    (identificador)
+    (literal_lista
+      (literal_entero)
+      (literal_lista
+        (literal_entero)
+        (literal_lista
+          (literal_entero)))
+      (literal_texto
+        (contenido_texto))
+      (literal_booleano
+        (palabra_verdadero))))
+  (declaracion_variable
+    (tipo_lista
+      (palabra_lista))
+    (identificador)
+    (literal_lista
+      (expresion_binaria
+        (identificador)
+        (identificador))
+      (instanciacion_objeto
+        (palabra_nuevo)
+        (identificador)
+        (lista_argumentos))
+      (llamada_funcion
+        (acceso_miembro
+          (identificador)
+          (nombre_miembro
+            (identificador)))
+        (lista_argumentos)))))
+
+==============================
+Acceso posterior a listas
+==============================
+
+valor = [[1], [2]][0][0]
+valor = [1, 2, 3].longitud()
+
+---
+
+(programa
+  (sentencia_asignacion
+    (identificador)
+    (acceso_indice
+      (acceso_indice
+        (literal_lista
+          (literal_lista
+            (literal_entero))
+          (literal_lista
+            (literal_entero)))
+        (literal_entero))
+      (literal_entero)))
+  (sentencia_asignacion
+    (identificador)
+    (llamada_funcion
+      (acceso_miembro
+        (literal_lista
+          (literal_entero)
+          (literal_entero)
+          (literal_entero))
+        (nombre_miembro
+          (identificador)))
+      (lista_argumentos))))

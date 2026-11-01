@@ -1,0 +1,92 @@
+==============================
+JSON nativo con distintas claves y valores anidados
+==============================
+
+jsn usuario = {
+    nombre: "Ana",
+    edad: 25,
+    activo: verdadero,
+    "clave con espacio": [1, 2],
+    tipo: "persona",
+    direccion: {
+        ciudad: "Guatemala"
+        codigo: 1
+    },
+}
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_jsn))
+    (identificador)
+    (literal_jsn
+      (entrada_jsn
+        (clave_jsn
+          (identificador))
+        (literal_texto
+          (contenido_texto)))
+      (entrada_jsn
+        (clave_jsn
+          (identificador))
+        (literal_entero))
+      (entrada_jsn
+        (clave_jsn
+          (identificador))
+        (literal_booleano
+          (palabra_verdadero)))
+      (entrada_jsn
+        (literal_texto
+          (contenido_texto))
+        (literal_lista
+          (literal_entero)
+          (literal_entero)))
+      (entrada_jsn
+        (clave_jsn
+          (identificador))
+        (literal_texto
+          (contenido_texto)))
+      (entrada_jsn
+        (clave_jsn
+          (identificador))
+        (literal_jsn
+          (entrada_jsn
+            (clave_jsn
+              (identificador))
+            (literal_texto
+              (contenido_texto)))
+          (entrada_jsn
+            (clave_jsn
+              (identificador))
+            (literal_entero)))))))
+
+==============================
+JSON vacío y JSON dentro de una expresión
+==============================
+
+valor = {}
+resultado = ejecutar({clave: 1}, [{otra: 2}])
+
+---
+
+(programa
+  (sentencia_asignacion
+    (identificador)
+    (literal_jsn))
+  (sentencia_asignacion
+    (identificador)
+    (llamada_funcion
+      (identificador)
+      (lista_argumentos
+        (literal_jsn
+          (entrada_jsn
+            (clave_jsn
+              (identificador))
+            (literal_entero)))
+        (literal_lista
+          (literal_jsn
+            (entrada_jsn
+              (clave_jsn
+                (identificador))
+              (literal_entero))))))))

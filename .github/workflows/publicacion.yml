@@ -1,0 +1,43 @@
+name: Preparar publicación
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  empaquetar:
+    name: Verificar y empaquetar v0.1.0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Preparar Rust
+        run: rustup update stable --profile minimal && rustup default stable
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Comprobar generación reproducible
+        run: npx tree-sitter generate && git diff --exit-code -- src
+      - name: Ejecutar verificaciones
+        run: npm test
+      - name: Fuzzing
+        run: npx tree-sitter fuzz --iterations 20 --edits 5
+      - name: Compilar parser
+        run: npx tree-sitter build
+      - name: Empaquetar sin publicar
+        run: |
+          npm pack
+          cargo package --allow-dirty
+      - name: Conservar artefactos
+        uses: actions/upload-artifact@v4
+        with:
+          name: tree-sitter-quetzal-0.1.0
+          path: |
+            tree-sitter-quetzal-0.1.0.tgz
+            target/package/tree-sitter-quetzal-0.1.0.crate
+            libtree-sitter-quetzal.so
+          if-no-files-found: error

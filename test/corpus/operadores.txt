@@ -1,0 +1,106 @@
+==============================
+Asignaciones simples y compuestas
+==============================
+
+vacio operar() {
+    valor = 1
+    valor += 2
+    valor -= 3
+    valor *= 4
+    valor /= 5
+    valor %= 6
+    instancia.miembro = valor
+    lista_valores[0] += valor
+}
+
+---
+
+(programa
+  (declaracion_funcion
+    (tipo_primitivo
+      (palabra_vacio))
+    (identificador)
+    (lista_parametros)
+    (bloque
+      (sentencia_asignacion
+        (identificador)
+        (literal_entero))
+      (sentencia_asignacion
+        (identificador)
+        (literal_entero))
+      (sentencia_asignacion
+        (identificador)
+        (literal_entero))
+      (sentencia_asignacion
+        (identificador)
+        (literal_entero))
+      (sentencia_asignacion
+        (identificador)
+        (literal_entero))
+      (sentencia_asignacion
+        (identificador)
+        (literal_entero))
+      (sentencia_asignacion
+        (acceso_miembro
+          (identificador)
+          (nombre_miembro
+            (identificador)))
+        (identificador))
+      (sentencia_asignacion
+        (acceso_indice
+          (identificador)
+          (literal_entero))
+        (identificador)))))
+
+==============================
+Operadores lógicos, unarios y actualización sufija
+==============================
+
+log resultado = !activo || listo && terminado
+log equivalente = no_activo o activo y listo
+entero negativo = -valor
+vacio actualizar() {
+    valor++
+    valor--
+}
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_log))
+    (identificador)
+    (expresion_binaria
+      (expresion_unaria
+        (identificador))
+      (expresion_binaria
+        (identificador)
+        (identificador))))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_log))
+    (identificador)
+    (expresion_binaria
+      (identificador)
+      (palabra_o)
+      (expresion_binaria
+        (identificador)
+        (palabra_y)
+        (identificador))))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (expresion_unaria
+      (identificador)))
+  (declaracion_funcion
+    (tipo_primitivo
+      (palabra_vacio))
+    (identificador)
+    (lista_parametros)
+    (bloque
+      (sentencia_incremento
+        (identificador))
+      (sentencia_decremento
+        (identificador)))))

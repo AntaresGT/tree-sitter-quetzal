@@ -1,0 +1,142 @@
+==============================
+Precedencia aritmética y asociatividad izquierda
+==============================
+
+entero resultado = 2 + 3 * 4 - 5 / 6 % 7
+entero agrupado = (2 + 3) * 4
+entero restas = 20 - 5 - 2
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (expresion_binaria
+      (expresion_binaria
+        (literal_entero)
+        (expresion_binaria
+          (literal_entero)
+          (literal_entero)))
+      (expresion_binaria
+        (expresion_binaria
+          (literal_entero)
+          (literal_entero))
+        (literal_entero))))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (expresion_binaria
+      (expresion_agrupada
+        (expresion_binaria
+          (literal_entero)
+          (literal_entero)))
+      (literal_entero)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (expresion_binaria
+      (expresion_binaria
+        (literal_entero)
+        (literal_entero))
+      (literal_entero))))
+
+==============================
+Comparación, igualdad y operadores lógicos
+==============================
+
+log valido = edad >= 18 && activo || administrador
+log equivalencia = a == b != c
+log palabras = a o b y c
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_log))
+    (identificador)
+    (expresion_binaria
+      (expresion_binaria
+        (expresion_binaria
+          (identificador)
+          (literal_entero))
+        (identificador))
+      (identificador)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_log))
+    (identificador)
+    (expresion_binaria
+      (expresion_binaria
+        (identificador)
+        (identificador))
+      (identificador)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_log))
+    (identificador)
+    (expresion_binaria
+      (identificador)
+      (palabra_o)
+      (expresion_binaria
+        (identificador)
+        (palabra_y)
+        (identificador)))))
+
+==============================
+Ternario asociativo a derecha y unarios
+==============================
+
+entero resultado = condicion ? a + b : c * d
+entero anidado = a ? b : c ? d : e
+log negado = !!activo
+entero esperado = -esperar calcular(1)
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (expresion_ternaria
+      (identificador)
+      (expresion_binaria
+        (identificador)
+        (identificador))
+      (expresion_binaria
+        (identificador)
+        (identificador))))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (expresion_ternaria
+      (identificador)
+      (identificador)
+      (expresion_ternaria
+        (identificador)
+        (identificador)
+        (identificador))))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_log))
+    (identificador)
+    (expresion_unaria
+      (expresion_unaria
+        (identificador))))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (expresion_unaria
+      (expresion_esperar
+        (palabra_esperar)
+        (llamada_funcion
+          (identificador)
+          (lista_argumentos
+            (literal_entero)))))))

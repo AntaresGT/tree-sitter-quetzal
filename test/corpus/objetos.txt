@@ -1,0 +1,123 @@
+==============================
+Objeto con atributos, constructor y métodos
+==============================
+
+objeto Usuario {
+    privado:
+        texto var nombre
+        entero edad = 18
+    publico:
+        Usuario(texto nombre) {
+            esto.nombre = nombre
+        }
+        texto obtener_nombre() {
+            retornar esto.nombre
+        }
+}
+
+---
+
+(programa
+  (declaracion_objeto
+    (palabra_objeto)
+    (identificador)
+    (cuerpo_objeto
+      (seccion_visibilidad
+        (palabra_privado))
+      (declaracion_atributo
+        (tipo_primitivo
+          (palabra_texto))
+        (modificador_var
+          (palabra_var))
+        (identificador))
+      (declaracion_atributo
+        (tipo_primitivo
+          (palabra_entero))
+        (identificador)
+        (literal_entero))
+      (seccion_visibilidad
+        (palabra_publico))
+      (declaracion_constructor
+        (identificador)
+        (lista_parametros
+          (declaracion_parametro
+            (tipo_primitivo
+              (palabra_texto))
+            (identificador)))
+        (bloque
+          (sentencia_asignacion
+            (acceso_miembro
+              (referencia_esto
+                (palabra_esto))
+              (nombre_miembro
+                (identificador)))
+            (identificador))))
+      (declaracion_metodo
+        (tipo_primitivo
+          (palabra_texto))
+        (identificador)
+        (lista_parametros)
+        (bloque
+          (sentencia_retorno
+            (palabra_retornar)
+            (acceso_miembro
+              (referencia_esto
+                (palabra_esto))
+              (nombre_miembro
+                (identificador)))))))))
+
+==============================
+Miembros libres y asíncronos en ambos órdenes
+==============================
+
+objeto Calculadora {
+    libre entero var usos = 0
+    libre asincrono entero calcular(entero valor) {
+        retornar valor
+    }
+    asincrono libre vacio ejecutar() {}
+}
+
+---
+
+(programa
+  (declaracion_objeto
+    (palabra_objeto)
+    (identificador)
+    (cuerpo_objeto
+      (declaracion_atributo
+        (modificador_libre
+          (palabra_libre))
+        (tipo_primitivo
+          (palabra_entero))
+        (modificador_var
+          (palabra_var))
+        (identificador)
+        (literal_entero))
+      (declaracion_metodo
+        (modificador_libre
+          (palabra_libre))
+        (modificador_asincrono
+          (palabra_asincrono))
+        (tipo_primitivo
+          (palabra_entero))
+        (identificador)
+        (lista_parametros
+          (declaracion_parametro
+            (tipo_primitivo
+              (palabra_entero))
+            (identificador)))
+        (bloque
+          (sentencia_retorno
+            (palabra_retornar)
+            (identificador))))
+      (declaracion_metodo
+        (modificador_asincrono
+          (palabra_asincrono))
+        (modificador_libre
+          (palabra_libre))
+        (tipo_primitivo
+          (palabra_vacio))
+        (identificador)
+        (lista_parametros)
+        (bloque)))))

@@ -1,0 +1,73 @@
+==============================
+Comentarios de línea y bloque
+==============================
+
+// Antes de la declaración
+entero valor = 1 // Al final de la línea
+/* Entre
+   declaraciones */
+texto otro = "texto"
+vacio ejecutar() {
+    /* Dentro del bloque */
+    retornar valor // Después de la expresión
+}
+
+---
+
+(programa
+  (comentario)
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (literal_entero))
+  (comentario)
+  (comentario)
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (declaracion_funcion
+    (tipo_primitivo
+      (palabra_vacio))
+    (identificador)
+    (lista_parametros)
+    (bloque
+      (comentario)
+      (sentencia_retorno
+        (palabra_retornar)
+        (identificador))
+      (comentario))))
+
+==============================
+Marcadores de comentario dentro de textos
+==============================
+
+texto linea = "// no es comentario"
+texto bloque = "/* tampoco */"
+/* No anidado: /* sigue siendo el mismo comentario */
+entero despues = 2
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (comentario)
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (literal_entero)))

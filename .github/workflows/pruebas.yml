@@ -1,0 +1,88 @@
+name: Pruebas
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  matriz:
+    name: ${{ matrix.so }}
+    runs-on: ${{ matrix.so }}
+    strategy:
+      fail-fast: false
+      matrix:
+        so: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Preparar Rust
+        shell: bash
+        run: rustup update stable --profile minimal && rustup default stable
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Comprobar archivos generados
+        run: npx tree-sitter generate && git diff --exit-code -- src
+      - name: Probar gramática
+        run: npx tree-sitter test
+      - name: Probar bindings e integración
+        run: npm test
+      - name: Fuzzing
+        run: npx tree-sitter fuzz --iterations 20 --edits 5
+      - name: Probar binding C
+        if: runner.os != 'Windows'
+        shell: bash
+        run: npm run test:c
+
+  conformidad-rust:
+    name: Conformidad con el intérprete
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: AntaresGT/lenguaje-quetzal
+          ref: quetzal-0.0.3
+          path: .referencia/lenguaje-quetzal
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Preparar Rust
+        run: rustup update stable --profile minimal && rustup default stable
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Comparar ejemplos válidos e inválidos
+        run: |
+          node pruebas/conformidad/verificar.js
+          cargo run --locked --manifest-path pruebas/conformidad/rust/Cargo.toml
+
+  neovim:
+    name: Integración con Neovim
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: nvim-treesitter/nvim-treesitter
+          path: .referencia/nvim-treesitter
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Preparar Neovim 0.12.6
+        run: |
+          mkdir -p "$RUNNER_TEMP/neovim"
+          curl -fsSL https://github.com/neovim/neovim/releases/download/v0.12.6/nvim-linux-x86_64.tar.gz -o "$RUNNER_TEMP/neovim.tar.gz"
+          tar -xzf "$RUNNER_TEMP/neovim.tar.gz" -C "$RUNNER_TEMP/neovim" --strip-components=1
+          echo "$RUNNER_TEMP/neovim/bin" >> "$GITHUB_PATH"
+      - name: Verificar parser y consultas en el editor
+        run: timeout 60s npm run test:neovim

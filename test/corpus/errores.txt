@@ -1,0 +1,245 @@
+==============================
+Error: función sin llave de cierre conserva su cuerpo
+==============================
+
+entero sumar(entero a) {
+    retornar a
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador))
+  (ERROR
+    (lista_parametros
+      (declaracion_parametro
+        (tipo_primitivo
+          (palabra_entero))
+        (identificador)))
+    (sentencia_retorno
+      (palabra_retornar)
+      (identificador))))
+
+==============================
+Error: objeto incompleto
+==============================
+
+objeto Usuario {
+    texto nombre
+
+---
+
+(programa
+  (declaracion_objeto
+    (palabra_objeto)
+    (identificador)
+    (cuerpo_objeto
+      (declaracion_atributo
+        (tipo_primitivo
+          (palabra_texto))
+        (identificador))
+      (MISSING "}"))))
+
+==============================
+Error: lista incompleta
+==============================
+
+lista valores = [1, 2
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_lista
+      (palabra_lista))
+    (identificador)
+    (literal_lista
+      (literal_entero)
+      (literal_entero)
+      (MISSING "]"))))
+
+==============================
+Error: cadena sin cierre
+==============================
+
+texto saludo = "Hola
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)
+      (MISSING """))))
+
+==============================
+Error: expresión sin operando con declaración posterior
+==============================
+
+entero antes = 1 +
+texto despues = "ok"
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (literal_entero))
+  (ERROR)
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto))))
+
+==============================
+Error: argumentos incompletos
+==============================
+
+sumar(10,
+
+---
+
+(programa
+  (sentencia_expresion
+    (identificador))
+  (ERROR
+    (literal_entero)))
+
+==============================
+Error: importación parcial
+==============================
+
+importar { ClienteHttp } desde "
+
+---
+
+(programa
+  (importacion
+    (palabra_importar)
+    (lista_importaciones
+      (simbolo_importado
+        (identificador)))
+    (palabra_desde)
+    (literal_texto
+      (contenido_texto)
+      (MISSING """))))
+
+==============================
+Error: interpolación sin llave de cierre
+==============================
+
+texto mensaje = t"Hola {nombre"
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador))
+  (ERROR
+    (segmento_texto_interpolado)
+    (identificador)))
+
+==============================
+Error: condicional incompleto
+==============================
+
+si (edad >= ) {
+    ejecutar()
+}
+
+---
+
+(programa
+  (sentencia_condicional
+    (palabra_si)
+    (expresion_binaria
+      (identificador)
+      (MISSING identificador))
+    (bloque
+      (sentencia_expresion
+        (llamada_funcion
+          (identificador)
+          (lista_argumentos))))))
+
+==============================
+Error: declaración sin valor todavía
+==============================
+
+entero valor =
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador))
+  (ERROR))
+
+==============================
+Error: punto y coma general no pertenece a una sentencia
+==============================
+
+entero valor = 1;
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (literal_entero))
+  (ERROR))
+
+==============================
+Error: incremento prefijo no implementado
+==============================
+
+++valor
+
+---
+
+(programa
+  (sentencia_incremento
+    (MISSING identificador))
+  (sentencia_expresion
+    (identificador)))
+
+==============================
+Error: comentario de bloque sin cerrar
+==============================
+
+entero antes = 1
+/* comentario incompleto
+texto despues = 2
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (expresion_binaria
+      (literal_entero)
+      (ERROR)
+      (identificador)))
+  (sentencia_expresion
+    (identificador))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_entero)))

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "quetzal",
+      "camelcase": "Quetzal",
+      "title": "Lenguaje Quetzal",
+      "scope": "source.quetzal",
+      "file-types": [
+        "qz"
+      ],
+      "injection-regex": "^quetzal$",
+      "highlights": "queries/highlights.scm",
+      "locals": "queries/locals.scm",
+      "injections": "queries/injections.scm",
+      "class-name": "TreeSitterQuetzal"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Gramática Tree-sitter para Lenguaje Quetzal",
+    "authors": [
+      {
+        "name": "Antares",
+        "url": ""
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/AntaresGT/tree-sitter-quetzal",
+      "funding": ""
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "java": false,
+    "node": true,
+    "python": false,
+    "rust": true,
+    "swift": false,
+    "zig": false
+  }
+}

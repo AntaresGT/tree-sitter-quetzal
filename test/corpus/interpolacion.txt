@@ -1,0 +1,130 @@
+==============================
+Interpolación de identificadores y expresiones
+==============================
+
+texto nombre = "Ana"
+texto saludo = t"Hola {nombre}"
+texto mensaje = t"Hola {usuario.nombre}, tienes {cantidad + 1} mensajes"
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (texto_interpolado
+      (segmento_texto_interpolado)
+      (interpolacion
+        (identificador))))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (texto_interpolado
+      (segmento_texto_interpolado)
+      (interpolacion
+        (acceso_miembro
+          (identificador)
+          (nombre_miembro
+            (identificador))))
+      (segmento_texto_interpolado)
+      (interpolacion
+        (expresion_binaria
+          (identificador)
+          (literal_entero)))
+      (segmento_texto_interpolado))))
+
+==============================
+Llaves escapadas y segmentos vacíos
+==============================
+
+texto vacia = t""
+texto llaves = t"\{literal\}"
+texto segmentos = t"{a}{b + c}final"
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (texto_interpolado))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (texto_interpolado
+      (secuencia_escape_interpolada)
+      (segmento_texto_interpolado)
+      (secuencia_escape_interpolada)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (texto_interpolado
+      (interpolacion
+        (identificador))
+      (interpolacion
+        (expresion_binaria
+          (identificador)
+          (identificador)))
+      (segmento_texto_interpolado))))
+
+==============================
+Expresiones anidadas con JSON y textos
+==============================
+
+texto complejo = t"Resultado: {ejecutar({clave: "valor"}, [a + b]).texto()}"
+texto anidado = t"Valor: {condicion ? t"interno {valor}" : "ninguno"}"
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (texto_interpolado
+      (segmento_texto_interpolado)
+      (interpolacion
+        (llamada_funcion
+          (acceso_miembro
+            (llamada_funcion
+              (identificador)
+              (lista_argumentos
+                (literal_jsn
+                  (entrada_jsn
+                    (clave_jsn
+                      (identificador))
+                    (literal_texto
+                      (contenido_texto))))
+                (literal_lista
+                  (expresion_binaria
+                    (identificador)
+                    (identificador)))))
+            (nombre_miembro
+              (palabra_texto)))
+          (lista_argumentos)))))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (texto_interpolado
+      (segmento_texto_interpolado)
+      (interpolacion
+        (expresion_ternaria
+          (identificador)
+          (texto_interpolado
+            (segmento_texto_interpolado)
+            (interpolacion
+              (identificador)))
+          (literal_texto
+            (contenido_texto)))))))

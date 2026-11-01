@@ -1,0 +1,11 @@
+[workspace]
+
+[package]
+name = "verificador-conformidad-quetzal"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+nucleo = { path = "../../../.referencia/lenguaje-quetzal/crates/nucleo" }
+sintaxis = { path = "../../../.referencia/lenguaje-quetzal/crates/sintaxis" }

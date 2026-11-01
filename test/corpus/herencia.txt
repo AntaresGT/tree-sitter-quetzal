@@ -1,0 +1,73 @@
+==============================
+Herencia simple, múltiple y composición
+==============================
+
+objeto Perro hereda Animal {
+    Perro() {
+        padre.Animal()
+    }
+}
+
+objeto Felino hereda Mamifero, Animal {
+}
+
+objeto Cuenta como Auditable implementa Persistible, Autenticable {
+}
+
+objeto Mixto implementa Contrato hereda Base como Auditable {
+}
+
+---
+
+(programa
+  (declaracion_objeto
+    (palabra_objeto)
+    (identificador)
+    (lista_herencia
+      (palabra_hereda)
+      (identificador))
+    (cuerpo_objeto
+      (declaracion_constructor
+        (identificador)
+        (lista_parametros)
+        (bloque
+          (sentencia_expresion
+            (llamada_funcion
+              (acceso_miembro
+                (referencia_padre
+                  (palabra_padre))
+                (nombre_miembro
+                  (identificador)))
+              (lista_argumentos)))))))
+  (declaracion_objeto
+    (palabra_objeto)
+    (identificador)
+    (lista_herencia
+      (palabra_hereda)
+      (identificador)
+      (identificador))
+    (cuerpo_objeto))
+  (declaracion_objeto
+    (palabra_objeto)
+    (identificador)
+    (lista_extension
+      (palabra_como)
+      (identificador))
+    (lista_prototipos
+      (palabra_implementa)
+      (identificador)
+      (identificador))
+    (cuerpo_objeto))
+  (declaracion_objeto
+    (palabra_objeto)
+    (identificador)
+    (lista_prototipos
+      (palabra_implementa)
+      (identificador))
+    (lista_herencia
+      (palabra_hereda)
+      (identificador))
+    (lista_extension
+      (palabra_como)
+      (identificador))
+    (cuerpo_objeto)))

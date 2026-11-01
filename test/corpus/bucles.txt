@@ -1,0 +1,122 @@
+==============================
+Bucles mientras y hacer mientras
+==============================
+
+mientras (contador < 10) {
+    contador++
+}
+
+hacer {
+    contador--
+} mientras (contador > 0)
+
+---
+
+(programa
+  (bucle_mientras
+    (palabra_mientras)
+    (expresion_binaria
+      (identificador)
+      (literal_entero))
+    (bloque
+      (sentencia_incremento
+        (identificador))))
+  (bucle_hacer_mientras
+    (palabra_hacer)
+    (bloque
+      (sentencia_decremento
+        (identificador)))
+    (palabra_mientras)
+    (expresion_binaria
+      (identificador)
+      (literal_entero))))
+
+==============================
+Bucle para clásico
+==============================
+
+para (entero var i = 0; i < 10; i++) {
+    si (i == 5) {
+        continuar
+    }
+    consola.mostrar(i)
+}
+
+---
+
+(programa
+  (bucle_para
+    (palabra_para)
+    (declaracion_variable
+      (tipo_primitivo
+        (palabra_entero))
+      (modificador_var
+        (palabra_var))
+      (identificador)
+      (literal_entero))
+    (expresion_binaria
+      (identificador)
+      (literal_entero))
+    (sentencia_incremento
+      (identificador))
+    (bloque
+      (sentencia_condicional
+        (palabra_si)
+        (expresion_binaria
+          (identificador)
+          (literal_entero))
+        (bloque
+          (sentencia_continuar
+            (palabra_continuar))))
+      (sentencia_expresion
+        (llamada_funcion
+          (acceso_miembro
+            (identificador)
+            (nombre_miembro
+              (identificador)))
+          (lista_argumentos
+            (identificador)))))))
+
+==============================
+Bucles para en y para cada
+==============================
+
+para (entero var valor en valores) {
+    consola.mostrar(valor)
+}
+
+para (texto valor cada textos) {
+    romper
+}
+
+---
+
+(programa
+  (bucle_para_coleccion
+    (palabra_para)
+    (tipo_primitivo
+      (palabra_entero))
+    (modificador_var
+      (palabra_var))
+    (identificador)
+    (palabra_en)
+    (identificador)
+    (bloque
+      (sentencia_expresion
+        (llamada_funcion
+          (acceso_miembro
+            (identificador)
+            (nombre_miembro
+              (identificador)))
+          (lista_argumentos
+            (identificador))))))
+  (bucle_para_coleccion
+    (palabra_para)
+    (tipo_primitivo
+      (palabra_texto))
+    (identificador)
+    (palabra_cada)
+    (identificador)
+    (bloque
+      (sentencia_romper
+        (palabra_romper)))))

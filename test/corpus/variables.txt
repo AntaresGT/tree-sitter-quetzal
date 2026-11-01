@@ -1,0 +1,91 @@
+==============================
+Declaraciones inmutables, mutables y sin valor
+==============================
+
+entero edad = 25
+texto var nombre = "Ana"
+log activo
+Usuario usuario = nuevo Usuario()
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (literal_entero))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_texto))
+    (modificador_var
+      (palabra_var))
+    (identificador)
+    (literal_texto
+      (contenido_texto)))
+  (declaracion_variable
+    (tipo_primitivo
+      (palabra_log))
+    (identificador))
+  (declaracion_variable
+    (tipo_definido_usuario)
+    (identificador)
+    (instanciacion_objeto
+      (palabra_nuevo)
+      (identificador)
+      (lista_argumentos))))
+
+==============================
+Declaración frente a expresión con identificadores
+==============================
+
+Usuario usuario
+usuario.obtener()
+resultado = usuario
+
+---
+
+(programa
+  (declaracion_variable
+    (tipo_definido_usuario)
+    (identificador))
+  (sentencia_expresion
+    (llamada_funcion
+      (acceso_miembro
+        (identificador)
+        (nombre_miembro
+          (identificador)))
+      (lista_argumentos)))
+  (sentencia_asignacion
+    (identificador)
+    (identificador)))
+
+==============================
+Declaraciones dentro de una función
+==============================
+
+vacio ejecutar() {
+    entero antes = 1
+    texto var despues
+}
+
+---
+
+(programa
+  (declaracion_funcion
+    (tipo_primitivo
+      (palabra_vacio))
+    (identificador)
+    (lista_parametros)
+    (bloque
+      (declaracion_variable
+        (tipo_primitivo
+          (palabra_entero))
+        (identificador)
+        (literal_entero))
+      (declaracion_variable
+        (tipo_primitivo
+          (palabra_texto))
+        (modificador_var
+          (palabra_var))
+        (identificador)))))

@@ -1,0 +1,185 @@
+==============================
+Funciones con parámetros y retorno
+==============================
+
+entero sumar(entero a, entero b) {
+    retornar a + b
+}
+
+vacio saludar() {
+    consola.mostrar("Hola")
+    retornar
+}
+
+---
+
+(programa
+  (declaracion_funcion
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (lista_parametros
+      (declaracion_parametro
+        (tipo_primitivo
+          (palabra_entero))
+        (identificador))
+      (declaracion_parametro
+        (tipo_primitivo
+          (palabra_entero))
+        (identificador)))
+    (bloque
+      (sentencia_retorno
+        (palabra_retornar)
+        (expresion_binaria
+          (identificador)
+          (identificador)))))
+  (declaracion_funcion
+    (tipo_primitivo
+      (palabra_vacio))
+    (identificador)
+    (lista_parametros)
+    (bloque
+      (sentencia_expresion
+        (llamada_funcion
+          (acceso_miembro
+            (identificador)
+            (nombre_miembro
+              (identificador)))
+          (lista_argumentos
+            (literal_texto
+              (contenido_texto)))))
+      (sentencia_retorno
+        (palabra_retornar)))))
+
+==============================
+Función recursiva, tipos compuestos y parámetros mutables
+==============================
+
+entero factorial(entero n) {
+    si (n == 0) {
+        retornar 1
+    } sino {
+        retornar n * factorial(n - 1)
+    }
+}
+
+lista<texto> agregar(lista<texto> var valores, texto var valor) {
+    retornar valores
+}
+
+---
+
+(programa
+  (declaracion_funcion
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (lista_parametros
+      (declaracion_parametro
+        (tipo_primitivo
+          (palabra_entero))
+        (identificador)))
+    (bloque
+      (sentencia_condicional
+        (palabra_si)
+        (expresion_binaria
+          (identificador)
+          (literal_entero))
+        (bloque
+          (sentencia_retorno
+            (palabra_retornar)
+            (literal_entero)))
+        (rama_sino
+          (palabra_sino)
+          (bloque
+            (sentencia_retorno
+              (palabra_retornar)
+              (expresion_binaria
+                (identificador)
+                (llamada_funcion
+                  (identificador)
+                  (lista_argumentos
+                    (expresion_binaria
+                      (identificador)
+                      (literal_entero)))))))))))
+  (declaracion_funcion
+    (tipo_lista
+      (palabra_lista)
+      (parametros_tipo
+        (tipo_primitivo
+          (palabra_texto))))
+    (identificador)
+    (lista_parametros
+      (declaracion_parametro
+        (tipo_lista
+          (palabra_lista)
+          (parametros_tipo
+            (tipo_primitivo
+              (palabra_texto))))
+        (modificador_var
+          (palabra_var))
+        (identificador))
+      (declaracion_parametro
+        (tipo_primitivo
+          (palabra_texto))
+        (modificador_var
+          (palabra_var))
+        (identificador)))
+    (bloque
+      (sentencia_retorno
+        (palabra_retornar)
+        (identificador)))))
+
+==============================
+Función asíncrona y espera
+==============================
+
+asincrono entero calcular(entero valor) {
+    retornar esperar otro_calculo(valor)
+}
+
+asincróno vacio ejecutar() {
+    entero resultado = esperar calcular(5)
+}
+
+---
+
+(programa
+  (declaracion_funcion
+    (modificador_asincrono
+      (palabra_asincrono))
+    (tipo_primitivo
+      (palabra_entero))
+    (identificador)
+    (lista_parametros
+      (declaracion_parametro
+        (tipo_primitivo
+          (palabra_entero))
+        (identificador)))
+    (bloque
+      (sentencia_retorno
+        (palabra_retornar)
+        (expresion_esperar
+          (palabra_esperar)
+          (llamada_funcion
+            (identificador)
+            (lista_argumentos
+              (identificador)))))))
+  (declaracion_funcion
+    (modificador_asincrono
+      (palabra_asincrono))
+    (tipo_primitivo
+      (palabra_vacio))
+    (identificador)
+    (lista_parametros)
+    (bloque
+      (declaracion_variable
+        (tipo_primitivo
+          (palabra_entero))
+        (identificador)
+        (expresion_esperar
+          (palabra_esperar)
+          (llamada_funcion
+            (identificador)
+            (lista_argumentos
+              (literal_entero))))))))
